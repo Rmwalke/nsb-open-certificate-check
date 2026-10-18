@@ -1,0 +1,21 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Rushikesh Murlidhar Walke, for the author's contributions and to the extent applicable rights exist.
+
+The accompanying Paper.pdf and the non-software manuscript, documentation, certificate JSON/data and remaining original note text identified in LICENSE_SCOPE.txt are licensed under Creative Commons Attribution 4.0 International. Software .py files are governed by LICENSE_MIT.txt instead.
+
+Full official license text:
+https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+Official summary and canonical license URL:
+https://creativecommons.org/licenses/by/4.0/
+
+Attribution information
+Author: Rushikesh Murlidhar Walke
+Title: Global heat-seeded Picard convergence near a nonlinear periodic Navier–Stokes flow
+Version: 1.0
+Correspondence: rushikesh@rmwalke.com
+
+When sharing licensed material, retain the supplied attribution and applicable notices, link to CC BY 4.0, and identify modifications, as required by the full license. The summary in this file does not replace or add conditions to that license. A DOI and publication date are not supplied here because they have not been assigned or established for this new record in this preparation.
+
+Separately identified third-party material retains its own notices and terms. No rights beyond those the licensor is authorized to grant are offered. No endorsement or external peer-review status is implied.

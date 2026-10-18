@@ -1,0 +1,18 @@
+{
+  "status": "PASS_INDEPENDENT_W3_RECTANGLE_AUDIT",
+  "source_sha256": {
+    "third_heat_defect_static_result.json": "b84689c2bd8cb746fd37a57cac76d83d7ca4f78ee401fb5a68621584c41003d0",
+    "fourth_heat_defect_static_result.json": "ab69f2fc5177e939cc985f5cc67f82d91990568a6338ee934c376840317465ec",
+    "refined_W_block_gate_result.json": "17b578bd37cb971cfbd21a58749bc95a94d62e126fcced0fe21bb3b85a3420b0"
+  },
+  "block_count": 17,
+  "independently_checked_offdiagonal_kernels": 136,
+  "all_invariance_slacks_strictly_positive": true,
+  "all_diagonal_lipschitz_entries_below_3_over_5": true,
+  "spectral_radius_upper_decimal_for_orientation": 0.5733491592406857,
+  "solution_X_squared_upper_below_8": true,
+  "solution_X_squared_decimal_for_orientation": 7.508934101585295,
+  "actual_single_step_decrease_lower_upper_comparison": true,
+  "minimum_invariance_slack_positive_decimal_for_orientation": 3.5949710517708323e-19,
+  "scope": "Unit W only; certificate data read without executing old code. All-past z4 and pointwise quadratic envelope are audited analytically in refined_iteration_adversarial.md. Rate calculation is owned by root."
+}

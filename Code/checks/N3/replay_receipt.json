@@ -1,0 +1,68 @@
+{
+  "started_utc": "2026-10-16T23:56:08.710351+00:00",
+  "finished_utc": "2026-10-16T23:57:02.849919+00:00",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "method": "Reexecution of archived implementation in an isolated copy; exact JSON comparison except wall time",
+  "all_checks_pass": true,
+  "checks": {
+    "source_bytes_unchanged": true,
+    "algebra_pass": true,
+    "algebra_exact_archived_agreement": true,
+    "all_finite_certificate_fields_exact_archived_agreement_except_elapsed_seconds": true,
+    "rational_check_exact_archived_agreement": true,
+    "original_gate_pass": true,
+    "completed_horizon_8": true,
+    "retained_modes_108": true,
+    "support_squared_radius_sum_660": true
+  },
+  "source_sha256": {
+    "n3_exact_algebra_intermediate.json": "15be3ffba859f976240e9c20a979d1a03a494dd69b8d404b873185bcfb9107fd",
+    "n3_interval_core.py": "7081f44f3f7dad76ecf4900c79a4ab20c94a62874b6bdb5f6166a5a50589bc8f",
+    "n3_validated_run.py": "2687207291b44940ce8c41e6b51822b720b77ab2130caaa4f9c8bb53588ac7ed",
+    "n3_algebra_audit.py": "1142a0f17ac204266ba245a26c693becd21f08426a8124371272fee8fd7ab656",
+    "n3_check_margins.py": "57134594cd82e2e06ff45cbbd74e808a873af9fc3f56046c20008a46980808fa"
+  },
+  "runs": [
+    {
+      "arguments": [
+        "n3_algebra_audit.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.526588658001856,
+      "log": "n3_algebra_audit.log"
+    },
+    {
+      "arguments": [
+        "n3_validated_run.py",
+        "--precision",
+        "224",
+        "--denominator",
+        "128",
+        "--order",
+        "16",
+        "--horizon",
+        "8",
+        "--progress",
+        "32"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 53.570347105996916,
+      "log": "n3_validated_run.log"
+    },
+    {
+      "arguments": [
+        "n3_check_margins.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.032597479003015906,
+      "log": "n3_check_margins.log"
+    }
+  ],
+  "precision_bits": 224,
+  "order": 16,
+  "step": "1/128",
+  "steps": 1024,
+  "saved_records": 33,
+  "kappa_original_upper": "13108650706211112106568919404571274711326726197894008841903862847223/26959946667150639794667015087019630673637144422540572481103610249216",
+  "scope": "Direct finite N=3 ODE interval enclosure plus analytic tail. PDE conclusions additionally require the written residual-error estimate, Sobolev bound, all-cutoff comparison, and continuation argument. H1 perturbation ball has distinct initial-energy scope."
+}

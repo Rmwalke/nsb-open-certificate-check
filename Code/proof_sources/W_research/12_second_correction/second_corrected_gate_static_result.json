@@ -1,0 +1,180 @@
+{
+  "status": "PASS_SECOND_CORRECTED_W_ANALYTIC_GATE",
+  "assertion_count": 69,
+  "checks": [
+    "Fourier cap F",
+    "Fourier cap K_WC",
+    "Fourier cap K_WH",
+    "Fourier cap G",
+    "Fourier cap K_FC",
+    "Fourier cap K_FH",
+    "Fourier cap B_CC",
+    "Fourier cap K_CH",
+    "Fourier cap B_HH",
+    "positive exact moment 11/10/0",
+    "positive exact moment 11/10/1",
+    "positive exact moment 11/10/2",
+    "positive exact moment 11/10/3",
+    "positive exact moment 11/10/4",
+    "positive exact moment 11/10/5",
+    "positive exact moment 11/10/6",
+    "positive exact moment 11/10/7",
+    "positive exact moment 11/10/8",
+    "positive exact moment 11/10/9",
+    "series remainder ratio below one 11/10",
+    "Taylor tail ratio below one: 983609/1280000",
+    "Taylor tail ratio below one: 2726009/1280000",
+    "Taylor tail ratio below one: 983609/1280000",
+    "positive exact moment 1/0",
+    "positive exact moment 1/1",
+    "positive exact moment 1/2",
+    "positive exact moment 1/3",
+    "positive exact moment 1/4",
+    "positive exact moment 1/5",
+    "positive exact moment 1/6",
+    "positive exact moment 1/7",
+    "positive exact moment 1/8",
+    "positive exact moment 1/9",
+    "series remainder ratio below one 1",
+    "Taylor tail ratio below one: 73/128",
+    "Taylor tail ratio below one: 217/128",
+    "Taylor tail ratio below one: 73/128",
+    "segment lies below sqrt3",
+    "monotonicity derivative F",
+    "monotonicity derivative WC",
+    "monotonicity derivative WH",
+    "A residual integral <3/20",
+    "A series <27/125",
+    "A expDelta <54/25",
+    "A endpoint residual <47/100",
+    "A initial multiplier <17/2",
+    "A P <213/25",
+    "A initial radius gate",
+    "A gate <3/5",
+    "B residual integral <101/1000",
+    "B series <271/2000",
+    "B expDelta <177/100",
+    "B endpoint residual <6/25",
+    "B initial multiplier <11/2",
+    "B initial radius gate",
+    "B gate <3/5",
+    "Taylor tail ratio below one: 1/2",
+    "Psi(1)>3/5",
+    "A F <4/25",
+    "B F <4/25",
+    "H<35",
+    "P<9",
+    "sqrtH<6",
+    "S2 through sqrt6",
+    "sqrt(3/2)<5/4",
+    "sqrt6<5/2",
+    "A low projection norm <7/5",
+    "B low projection norm <7/5",
+    "low budget <81"
+  ],
+  "scope": "Exact factorial moments and positive-series tails; no ODE/PDE evolution.",
+  "case_A": {
+    "amplitude": {
+      "numerator": 11,
+      "denominator": 10,
+      "decimal_display_only": 1.1
+    },
+    "total_residual_upper": {
+      "numerator": 443801204023147329337,
+      "denominator": 2987228160000000000000,
+      "decimal_display_only": 0.14856622268288583
+    },
+    "series_upper": {
+      "numerator": 144317245072040777305315500585735364353571430326411362854802201519610760491,
+      "denominator": 669622130126304463109885567622048705517977600000000000000000000000000000000,
+      "decimal_display_only": 0.21552042350335643
+    },
+    "delta": {
+      "numerator": 983609,
+      "denominator": 1280000,
+      "decimal_display_only": 0.76844453125
+    },
+    "exp_delta_upper": {
+      "numerator": 79854798098131571422458301248446079139647743000552604523496199586286925689221256973372613695323614071852142432825195979,
+      "denominator": 37031371452684834981560886308506101443326894890024960000000000000000000000000000000000000000000000000000000000000000000,
+      "decimal_display_only": 2.1564094162745886
+    },
+    "reference_budget_upper": {
+      "numerator": 2726009,
+      "denominator": 320000,
+      "decimal_display_only": 8.518778125
+    },
+    "initial_multiplier_upper": {
+      "numerator": 22069974472201983674538569529819717525832326402404597617772696113992097133252149165859240259384225944382998629980276983,
+      "denominator": 2623537327945853613452456096330593872088452216913920000000000000000000000000000000000000000000000000000000000000000000,
+      "decimal_display_only": 8.41229672515545
+    },
+    "residual_endpoint_upper": {
+      "numerator": 11524424467306389761758341472564558998547604487960223520294878216004696760473432885335292713260140555660475242329231145548396854597862187072575101006657967674994073792466415533500743314305265689,
+      "denominator": 24797025833645240908605412677080558853424788937789140327969743872109251242734464816264192720896000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,
+      "decimal_display_only": 0.46475027064212493
+    }
+  },
+  "case_B": {
+    "amplitude": {
+      "numerator": 1,
+      "denominator": 1,
+      "decimal_display_only": 1.0
+    },
+    "total_residual_upper": {
+      "numerator": 32883377061607,
+      "denominator": 328595097600000,
+      "decimal_display_only": 0.1000726343812836
+    },
+    "series_upper": {
+      "numerator": 374792336716545726278587306836900687582868563651137119,
+      "denominator": 2769814524383943592197230074926927431319158784000000000,
+      "decimal_display_only": 0.13531315307110908
+    },
+    "delta": {
+      "numerator": 73,
+      "denominator": 128,
+      "decimal_display_only": 0.5703125
+    },
+    "exp_delta_upper": {
+      "numerator": 2429349038123564025736068576382279122621782457863491,
+      "denominator": 1373429416777414666014468264394128419166860869632000,
+      "decimal_display_only": 1.7688197212374674
+    },
+    "reference_budget_upper": {
+      "numerator": 217,
+      "denominator": 32,
+      "decimal_display_only": 6.78125
+    },
+    "initial_multiplier_upper": {
+      "numerator": 12986894799345756610796350241105291879553872019593,
+      "denominator": 2383638869076625961196294803440594632390475776000,
+      "decimal_display_only": 5.448348308054156
+    },
+    "residual_endpoint_upper": {
+      "numerator": 910501402698423288757621929624701641253792059531096648701998925806861771675197974389613205591405425022429,
+      "denominator": 3804144746806251841004350630976859962629396783774318798711358830542273741991553283640931647488000000000000,
+      "decimal_display_only": 0.2393445736950019
+    }
+  },
+  "proved_classes": [
+    "|a|<=11/10, A_-1(h)<=1/100",
+    "|a|<=1, A_-1(h)<=1/20"
+  ],
+  "uniform_error_barrier": {
+    "numerator": 1,
+    "denominator": 1,
+    "decimal_display_only": 1.0
+  },
+  "integrated_A1_error_bound": {
+    "numerator": 35,
+    "denominator": 1,
+    "decimal_display_only": 35.0
+  },
+  "all_cutoff_A0_squared_integral_bound": {
+    "numerator": 81,
+    "denominator": 1,
+    "decimal_display_only": 81.0
+  },
+  "NSB_bound": "(E0*X0/2)*exp(81)"
+}

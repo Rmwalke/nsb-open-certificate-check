@@ -1,0 +1,572 @@
+\section{Larger regularity neighborhoods of the amplitude segment}
+\label{ext:section}
+
+The convergence theorem above and the extension in this section have different
+conclusions. Here the second corrected reference gives larger sufficient
+initial-data classes for global regularity and a uniform Galerkin budget.
+No convergence of the ordinary heat-seeded Picard iteration is asserted on
+these larger classes.
+
+In this section $F,G,C,H$ denote the fixed spatial Fourier fields and
+$L_1,L_5,L_6$ their scalar heat profiles. The initial radius is $r$, the
+critical-error barrier is $B<2$, and $P$ is the reference action. We write
+$M_{\mathrm{gate}}$ for the scalar endpoint test and $\Gamma$ for the total
+solution-action bound; the integer $L$ is its rounded budget exponent.
+The scalar barrier $B$ is distinct from the bilinear operators
+$B(\cdot,\cdot)$ and $B_s(\cdot,\cdot)$.
+
+\begin{theorem}[Regularity regions with explicit budgets]\label{ext:theorem}
+Let $u_0=aW+h$, where $a\in\mathbb R$ and $h$ is smooth, real, mean-zero,
+and divergence-free. Suppose that one row of Table~\ref{ext:regions} satisfies
+$|a|\le a_*$ and $A_{-1}(h)\le r$. Then the viscosity-one unforced
+Navier--Stokes equation has a unique global smooth solution with datum $u_0$.
+Writing
+\[
+ E_0=\|u_0\|_2^2,\qquad X_0=\|\nabla u_0\|_2^2,
+\]
+its spherical Galerkin solutions satisfy
+\begin{align}
+ \sup_{N,t\ge0}\|\nabla u_N(t)\|_2^2&\le X_0e^L,
+ \label{ext:h1}\\
+ \sup_N\int_0^\infty\|\Delta u_N(t)\|_2^2\,dt&\le X_0e^L,
+ \label{ext:h2}\\
+ B_*(u_0):=\sup_N\int_0^\infty\|\nabla u_N(t)\|_2^4\,dt
+ &\le\frac{E_0X_0}{2}e^L.
+ \label{ext:nsb}
+\end{align}
+There is no restriction on the Fourier support of $h$.
+\end{theorem}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ccccc}
+\hline
+Amplitude $a_*$ & Radius $r$ & Error barrier $B$ & $\Gamma$ (orientation) & $L$\\
+\hline
+$1$ & $2/25$ & $6/5$ & $24.40770\ldots$ & $25$\\
+$1$ & $1/10$ & $9/5$ & $58.60140\ldots$ & $59$\\
+$11/10$ & $1/40$ & $6/5$ & $28.06654\ldots$ & $29$\\
+$9/8$ & $1/100$ & $6/5$ & $29.06160\ldots$ & $30$\\
+$8/7$ & $1/100$ & $8/5$ & $48.27248\ldots$ & $49$\\
+\hline
+\end{tabular}
+\caption{Five certified amplitude--radius--budget triples. The first and
+fourth rows are nested refinements of the second and fifth, respectively,
+with smaller budget exponents. The displayed values of $\Gamma$, defined
+in \eqref{ext:G}, are for orientation; the exact rational enclosures
+prove $\Gamma<L$.}
+\label{ext:regions}
+\end{table}
+
+Write $\mathcal C(A,r)$ for the set of the stated smooth data admitting a
+decomposition $u_0=aW+h$ with $|a|\le A$ and $A_{-1}(h)\le r$. Then
+\[
+ \mathcal C(1,2/25)\subset\mathcal C(1,1/10),\qquad
+ \mathcal C(9/8,1/100)\subset\mathcal C(8/7,1/100).
+\]
+Thus the five rows have three inclusion-maximal data classes among the
+listed classes. The two nested rows retain their value through the
+smaller exponents $25$ instead of $59$ and $30$ instead of $49$.
+For a datum belonging to more than one row, one may use the smallest
+listed exponent for which an admissible decomposition exists. These
+observations do not certify a new amplitude--radius rectangle formed
+by mixing bounds from different rows, and no maximality among all
+regularity classes is asserted. The quantities $E_0$ and $X_0$ always
+refer to the full datum; the critical radius alone does not uniformly
+bound its $H^1$ norm.
+
+\subsection{The complete critical error inequality}
+\label{ext:comparison}
+
+Let $v$ be a smooth finite Fourier reference and set
+\[
+ r_v=\partial_tv-\Delta v+B_s(v,v),\qquad
+ U(t)=A_0(v(t)),\qquad R(t)\ge A_{-1}(r_v(t)).
+\]
+At every cutoff containing the support of $v$, the exact Galerkin error
+$e=u_N-v$ satisfies
+\[
+ \partial_te-\Delta e+
+ \Pi_N\{2B_s(v,e)+B_s(e,e)\}=-\Pi_Nr_v.
+\]
+Here and below $\Pi_N$ is the spherical projection. The residual is the full
+Fourier residual before projection; no exterior modes have been discarded
+when defining $R$.
+
+Put $b=A_{-1}(e)$ and $d=A_1(e)$. The symmetric Leray estimate and
+$A_0(e)^2\le bd$ give, almost everywhere,
+\begin{equation}
+ b'+(1-b/2)d\le U\sqrt{bd}+R.
+ \label{ext:error}
+\end{equation}
+Indeed, the two mixed terms contribute at most $UA_0(e)$ and the self term
+at most $A_0(e)^2/2$. The finite coefficient norms are absolutely continuous;
+the same inequalities hold at coefficient zeros by the integrated norm
+inequality, or by regularization and passage to the limit.
+
+\begin{lemma}[Endpoint gate and retained history]\label{ext:historylemma}
+Suppose
+\[
+ b(0)\le r<B<2,\qquad
+ P=\int_0^\infty U(t)^2\,dt<\infty,\qquad
+ R_*=\int_0^\infty R(t)\,dt<\infty,
+\]
+where $R\ge0$. Define $\Psi(s)=se^{-s/2}$ for $0\le s<2$.
+If
+\begin{equation}
+ M_{\mathrm{gate}}:=e^{P/4}\Psi(r)+
+ \int_0^\infty
+  \exp\!\left(\frac14\int_t^\infty U(s)^2\,ds\right)R(t)\,dt
+ <\Psi(B),
+ \label{ext:gate}
+\end{equation}
+then $b(t)<B$ for every $t\ge0$. With
+\begin{equation}
+ F_*(s)=-2s-4\log(1-s/2),\qquad
+ C_*=F_*(r)+\frac{B}{1-B/2}R_*,
+ \label{ext:F}
+\end{equation}
+one moreover has
+\begin{align}
+ \left(\int_0^\infty b(t)d(t)\,dt\right)^{1/2}
+ &\le\sqrt{F_*(B)}+\sqrt{F_*(B)+C_*},
+ \label{ext:errorbudget}\\
+ \int_0^\infty A_0(u_N(t))^2\,dt
+ &\le
+ \left[\sqrt P+\sqrt{F_*(B)}+\sqrt{F_*(B)+C_*}\right]^2.
+ \label{ext:referencebudget}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+While $b<2$, maximize $U\sqrt b\sqrt d-(1-b/2)d$ in $\sqrt d\ge0$.
+As $0<\Psi'(b)=e^{-b/2}(1-b/2)\le1$, this gives
+\begin{equation}
+ (\Psi(b))'\le\frac14U^2\Psi(b)+R.
+ \label{ext:transformed}
+\end{equation}
+Let $J(t)=\int_0^tU^2$. Integrating \eqref{ext:transformed} only up to $t$
+and multiplying by $e^{(P-J(t))/4}$ yields
+\[
+ e^{(P-J(t))/4}\Psi(b(t))
+ \le e^{P/4}\Psi(r)+
+ \int_0^t e^{(P-J(s))/4}R(s)\,ds\le M_{\mathrm{gate}}.
+\]
+If $b$ first reached $B$, the left side at that time would be at least
+$\Psi(B)$, contradicting \eqref{ext:gate}. Finite Galerkin solutions exist
+globally by their kinetic-energy identity, so this first-contact argument
+proves $b<B$ on the entire half-line without assuming a global PDE solution.
+It also proves the stronger envelope
+\begin{equation}
+ \Psi(b(t))\le\Psi(B)e^{-(P-J(t))/4}.
+ \label{ext:envelope}
+\end{equation}
+
+Define $\beta(t)\in[0,B]$ by equality in \eqref{ext:envelope}, using only
+the increasing branch of $\Psi$ on $[0,2)$. Then $b\le\beta\le B$ and
+\[
+ \beta'=\frac{U^2\beta}{4(1-\beta/2)},\qquad
+ F_*'(s)=\frac{s}{1-s/2}.
+\]
+The chain rule therefore proves, for every finite $T$,
+\begin{equation}
+ \int_0^T U^2\frac{b^2}{(1-b/2)^2}\,dt
+ \le4\{F_*(\beta(T))-F_*(\beta(0))\}\le4F_*(B).
+ \label{ext:weightedhistory}
+\end{equation}
+No strict monotonicity of $J$ is required. In particular intervals on which
+$U=0$ cause no change-of-variable problem.
+
+Multiply \eqref{ext:error} by $b/(1-b/2)$. After integration on $[0,T]$,
+drop the nonnegative terminal value $F_*(b(T))$. For
+$Q_T=\int_0^Tbd$, monotonicity of $s/(1-s/2)$ and
+\eqref{ext:weightedhistory} give
+\[
+ Q_T\le F_*(r)+\frac{B}{1-B/2}R_*+
+ \left(4F_*(B)Q_T\right)^{1/2}.
+\]
+The positive root of this quadratic inequality bounds $\sqrt{Q_T}$ by
+the right side of \eqref{ext:errorbudget}, uniformly in $T$.
+Only then take $T\to\infty$ by monotone convergence. Finally,
+$A_0(e)^2\le bd$ and Minkowski in time prove
+\eqref{ext:referencebudget}.
+\end{proof}
+
+\paragraph{Reference-free baseline.}
+For smooth, real, mean-zero, solenoidal data, put $r_0=A_{-1}(u_0)<2$,
+choose $r_0<B<2$, and take $v\equiv0$. Then $U=R=P=0$, and the gate is
+$\Psi(r_0)<\Psi(B)$, which holds because $\Psi$ is strictly increasing
+on $[0,2)$. The zero reference belongs to every Galerkin subspace, and
+$A_{-1}(\Pi_Nu_0)\le r_0$. Lemma~\ref{ext:historylemma}, with $r=r_0$,
+therefore gives a finite action bound uniform in every cutoff.
+The enstrophy estimate and the compactness, uniqueness and continuation
+argument of Section~\ref{ext:pde} then give a global smooth solution.
+This is a consequence of the present comparison estimate; the threshold
+$2$ is not attributed to the earlier small-data theorems.
+
+\subsection{The second corrected reference and its signed residual}
+\label{ext:reference}
+
+All fields in this subsection are finite Fourier polynomials. Set
+\begin{align*}
+ F&=B_s(W,W),&
+ G&=2B_s(W,F)=-\tfrac12W+C,\\
+ C&=\tfrac12(\sin z\cos2y,\sin x\cos2z,\sin y\cos2x),&
+ H&=B_s(F,F).
+\end{align*}
+The frequency shells of $W,F,C,H$ have squared radii $1,2,5,6$,
+respectively. Define
+\begin{align}
+ L_1(t)&=\frac{e^{-t}-(1+2t)e^{-3t}}4,&
+ L_5(t)&=\frac{e^{-5t}+(2t-1)e^{-3t}}4,\notag\\
+ L_6(t)&=\frac{(2t^2-2t+1)e^{-4t}-e^{-6t}}4.
+ \label{ext:profiles}
+\end{align}
+Their initial values vanish and
+\[
+ (\partial_t+1)L_1=(\partial_t+5)L_5=te^{-3t},\qquad
+ (\partial_t+6)L_6=t^2e^{-4t}.
+\]
+Thus they are nonnegative causal heat convolutions. The reference is
+\begin{equation}
+ w_{2,a}=(ae^{-t}-a^3L_1/2)W-a^2te^{-2t}F
+                +a^3L_5C-a^4L_6H.
+ \label{ext:w2}
+\end{equation}
+It starts exactly at $aW$ and has support $|k|\le\sqrt6$.
+For clarity, if $w_1=ae^{-t}W-a^2te^{-2t}F$ and
+$z_2=(a^3/2)L_1W-a^3L_5C+a^4L_6H$, then $w_{2,a}=w_1-z_2$,
+\[
+ r_1=-a^3te^{-3t}G+a^4t^2e^{-4t}H,
+ \qquad (\partial_t-\Delta)z_2=r_1.
+\]
+It follows algebraically that the full residual of \eqref{ext:w2} is
+$-2B_s(w_1,z_2)+B_s(z_2,z_2)$.
+
+For $m=|a|$, introduce the nonnegative scalar functions
+\[
+ x=me^{-t},\quad y=m^2te^{-2t},\quad
+ p=m^3L_1/2,\quad q=m^3L_5,\quad s=m^4L_6,
+\]
+and put $K_{AB}=2B_s(A,B)$. For $a=m\ge0$, the complete residual is
+\begin{align}
+ r_2={}&(p^2-2xp)F+ypG+(x-p)qK_{WC}-(x-p)sK_{WH}\notag\\
+       &-yqK_{FC}+ysK_{FH}+q^2B_s(C,C)
+                       -qsK_{CH}+s^2B_s(H,H).
+ \label{ext:residual}
+\end{align}
+For $a<0$, the corresponding signed coefficients have exactly the same
+magnitudes as those used below. This follows by substituting the powers
+$a,a^2,a^3,a^4$ before grouping. It does not assume that the full solution
+is invariant under $u\mapsto-u$.
+
+The finite Fourier identities and upper bounds required here are recorded
+in Table~\ref{ext:caps}. Each bound is for the complete generated Fourier
+field with the Leray projection, not for its projection back to the original
+support. Their coefficient-level verification is part of the certificate
+appendix.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrr}
+\hline
+Field & $A_{-1}$ upper cap $c_j$ & Nonzero modes\\
+\hline
+$F$ & $17/8$ & $12$\\
+$K_{WC}$ & $171/100$ & $48$\\
+$K_{WH}$ & $27/20$ & $72$\\
+$G$ & $87/40$ & $18$\\
+$K_{FC}$ & $6/5$ & $60$\\
+$K_{FH}$ & $183/100$ & $120$\\
+$B_s(C,C)$ & $11/25$ & $48$\\
+$K_{CH}$ & $3/4$ & $162$\\
+$B_s(H,H)$ & $9/25$ & $120$\\
+\hline
+\end{tabular}
+\caption{Complete Fourier norm caps in the order used in \eqref{ext:R}.}
+\label{ext:caps}
+\end{table}
+
+Since $p/x\le m^2/8$, all entries in the following vector are nonnegative
+for $m^2\le3$:
+\begin{equation}
+ (f_1,\ldots,f_9)=
+ (2xp-p^2,(x-p)q,(x-p)s,yp,yq,ys,q^2,qs,s^2),
+ \qquad R_m=\sum_{j=1}^9c_jf_j.
+ \label{ext:R}
+\end{equation}
+Consequently $A_{-1}(r_2)\le R_m$. The subtractive terms in the first three
+profiles remain grouped before a Fourier norm bound is taken.
+
+\subsection{Why the endpoint calculations cover amplitude intervals}
+\label{ext:monotonicity}
+
+The four shells in \eqref{ext:w2} are disjoint, and their $A_0$ norms are
+$3,3,3/2,\sqrt3$. For $m^2\le8$, the fundamental coefficient retains the
+sign of $a$, since $L_1\le e^{-t}/4$. Hence the exact reference norm is
+\begin{equation}
+ U_2(m,t)=3me^{-t}+3m^2te^{-2t}
+      -\frac32m^3(L_1-L_5)+\sqrt3m^4L_6.
+ \label{ext:U2}
+\end{equation}
+For $k_\lambda(t)=e^{-\lambda t}\mathbf1_{t\ge0}$, direct convolution
+identities give
+\[
+ L_1-L_5=4k_1*k_3*k_3*k_5,\qquad
+ 2L_6=4k_4*k_4*k_4*k_6.
+\]
+Comparison of the four nonnegative factors gives $L_1-L_5\ge2L_6$.
+Together with $0\le L_1-L_5\le L_1\le e^{-t}/4$, this proves
+\begin{align}
+ U_2(m,t)&\le U_1(m,t):=3me^{-t}+3m^2te^{-2t}
+                   &&(m^2\le3),\label{ext:U1}\\
+ \partial_mU_2(m,t)&\ge(3-9m^2/8)e^{-t}\ge0
+                   &&(m^2\le8/3).
+ \label{ext:Umonotone}
+\end{align}
+In the second line the omitted terms are nonnegative. Replacing $\sqrt3$
+by a rational upper bound preserves this monotonicity, as $L_6\ge0$.
+Thus a reference-budget upper enclosure computed at $a_*$ bounds the
+budget throughout $0\le m\le a_*$.
+
+The residual majorant is monotone on the same required interval.
+The first three profiles in \eqref{ext:R} have the forms
+$m^4A-m^6D$, $m^4A-m^6D$, and $m^5A-m^7D$, respectively, with
+$D/A\le1/16,1/8,1/8$ wherever $A>0$. Their derivatives have nonnegative
+factors bounded below by
+\[
+ 4-6m^2/16,\qquad4-6m^2/8,\qquad5-7m^2/8,
+\]
+all strictly positive for $m^2\le3$. Where $A=0$, the corresponding
+profile vanishes and the same conclusion follows by continuity. The six
+remaining profiles are nonnegative pure powers of $m$. Every amplitude
+endpoint in Table~\ref{ext:regions} lies in both stated ranges.
+
+\subsection{Finite exact inequalities behind the five gates}
+\label{ext:arithmetic}
+
+Here we specify the finite arithmetic used in \eqref{ext:gate}, so that
+the application is not an invocation of a bare program status. A finite
+exponential polynomial $T(t)=\sum_{\lambda,d}c_{\lambda d}t^de^{-\lambda t}$
+with rational coefficients is integrated by
+\begin{equation}
+ \mathcal I_n(T):=\int_0^\infty e^{-2nt}T(t)\,dt
+ =\sum_{\lambda,d}c_{\lambda d}
+             \frac{d!}{(\lambda+2n)^{d+1}}.
+ \label{ext:moments}
+\end{equation}
+Use the explicit upper enclosure
+\[
+ \sqrt3<s_3^+:=\frac{866025403784438647}{500000000000000000},
+\]
+whose square exceeds $3$. Let $U_2^+(a_*,t)$ denote \eqref{ext:U2} with
+$\sqrt3$ replaced by $s_3^+$. It is nonnegative and dominates $U_2(m,t)$
+for $0\le m\le a_*$. Set
+\begin{equation}
+ P^+(a_*)=\mathcal I_0((U_2^+(a_*,\cdot))^2),\qquad
+ R_*(a_*)=\mathcal I_0(R_{a_*}),\qquad
+ I_n(a_*)=\mathcal I_n(R_{a_*}).
+ \label{ext:certinputs}
+\end{equation}
+These are exact rational numbers. Although the expanded polynomial $R_m$
+has some negative coefficients, \eqref{ext:R} proves $R_m(t)\ge0$;
+therefore $0\le I_{n+1}(m)\le I_n(m)$.
+
+By \eqref{ext:U1},
+\[
+ \int_0^\infty U_1(m,t)^2\,dt
+ =\frac92m^2+2m^3+\frac9{32}m^4.
+\]
+Subtracting only the heat part of the \emph{past} $U_1^2$ integral gives
+\begin{equation}
+ \exp\!\left(\frac14\int_t^\infty U_2(m,s)^2\,ds\right)
+ \le e^{\Delta_m}\exp(c_me^{-2t}),\qquad
+ c_m=\frac98m^2,\quad \Delta_m=\frac12m^3+\frac9{128}m^4.
+ \label{ext:weight}
+\end{equation}
+This uses $U_1\ge3me^{-t}$, not a lower bound of that form for $U_2$.
+Tonelli's theorem applies to the positive exponential series against $R_m$.
+If $t_n=c_m^nI_n(m)/n!$, then
+$t_{n+1}\le c_mt_n/(n+1)$, so
+\begin{equation}
+ \int_0^\infty e^{\frac14\int_t^\infty U_2^2}R_m(t)\,dt
+ \le e^{\Delta_m}
+ \left(\sum_{n=0}^{24}t_n+\frac{t_{25}}{1-c_m/26}\right).
+ \label{ext:tail}
+\end{equation}
+All denominators are positive at the stated endpoints.
+
+For rational $0\le z<66$ define the rational upper bound
+\begin{equation}
+ \mathcal E(z)=\sum_{n=0}^{64}\frac{z^n}{n!}
+       +\frac{z^{65}/65!}{1-z/66}\ge e^z.
+ \label{ext:expupper}
+\end{equation}
+For a given row, replace the initial term and residual term in the gate by
+\begin{align}
+ M_{\mathrm{gate}}^+(a_*,r)={}&r\mathcal E(P^+(a_*)/4-r/2)\notag\\
+ &+\mathcal E(\Delta_{a_*})
+ \left(\sum_{n=0}^{24}\frac{c_{a_*}^n}{n!}I_n(a_*)+
+       \frac{c_{a_*}^{25}I_{25}(a_*)/25!}{1-c_{a_*}/26}\right),
+ \label{ext:Mplus}\\
+ \Psi^-(B)={}&\frac{B}{\mathcal E(B/2)}\le\Psi(B).
+ \label{ext:psilower}
+\end{align}
+The argument $P^+/4-r/2$ is nonnegative in every row. Monotonicity proved
+above, and monotonicity of $\Psi$ on the initial interval, imply
+$M_{\mathrm{gate}}\le M_{\mathrm{gate}}^+$
+for every datum in that row. Direct rational evaluation of
+\eqref{ext:moments}--\eqref{ext:psilower} gives the strict inequalities
+recorded in Table~\ref{ext:gatetable}. The endpoints of the data classes
+are closed because the gate inequalities themselves have strict margins.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{ccccc}
+\hline
+$a_*$ & $r$ & $B$ & $M_{\mathrm{gate}}^+$ (orientation) &
+ $\Psi^-(B)-M_{\mathrm{gate}}^+$ (orientation)\\
+\hline
+$1$ & $2/25$ & $6/5$ & $0.636555727041\ldots$ & $0.02201823627\ldots$\\
+$1$ & $1/10$ & $9/5$ & $0.730918119157\ldots$ & $0.00090726837\ldots$\\
+$11/10$ & $1/40$ & $6/5$ & $0.656895071385\ldots$ & $0.00167889192\ldots$\\
+$9/8$ & $1/100$ & $6/5$ & $0.636557679768\ldots$ & $0.02201628354\ldots$\\
+$8/7$ & $1/100$ & $8/5$ & $0.714761998246\ldots$ & $0.00416434434\ldots$\\
+\hline
+\end{tabular}
+\caption{The exact numbers are the rational expressions
+\eqref{ext:Mplus}--\eqref{ext:psilower}, stored in the endpoint certificate.
+The displayed decimals are explanatory; the finite integer comparisons
+prove that each margin is positive.}
+\label{ext:gatetable}
+\end{table}
+
+For each passing row define
+\begin{equation}
+ \Gamma=\left[\sqrt{P^+(a_*)}+\sqrt{F_*(B)}+
+ \sqrt{F_*(B)+F_*(r)+\frac{B}{1-B/2}R_*(a_*)}\right]^2.
+ \label{ext:G}
+\end{equation}
+Its strict upper comparison $\Gamma<L$ in Table~\ref{ext:regions} is another
+finite certificate, rather than a floating-point evaluation of logarithms.
+Explicitly, normalize each logarithm argument as $2^kx$ with $1\le x\le2$.
+For $q=(x-1)/(x+1)\in[0,1/3]$,
+\[
+ 2\sum_{j=0}^{39}\frac{q^{2j+1}}{2j+1}
+ \le\log x\le
+ 2\sum_{j=0}^{39}\frac{q^{2j+1}}{2j+1}
+       +\frac{2q^{81}}{81(1-q^2)}.
+\]
+Apply the same enclosure to $\log2$. Square roots of the resulting
+nonnegative rationals are bounded above at scale $10^{30}$ by integer
+square roots with outward rounding. Substitution in \eqref{ext:G}
+then compares rational numbers with the listed integers $L$.
+
+The exact certificate dependencies for this section are:
+\begin{center}
+\begin{tabular}{p{0.41\textwidth}p{0.51\textwidth}}
+\hline
+Certificate & Mathematical role\\
+\hline
+\path{second_correction_fourier_check.py}
+ & Fourier fields, profiles, projected products, and the nine caps in
+ Table~\ref{ext:caps}.\\
+\path{enlarged_endpoint_gate.py}
+ & Rational moments, $P^+$, the full weighted residual, and the five
+ strict endpoint inequalities.\\
+\path{enlarged_budget_static.py}
+ & Outward logarithm and square-root enclosures proving the five
+ inequalities $\Gamma<L$.\\
+\hline
+\end{tabular}
+\end{center}
+The accompanying exact output files and hashes are supplied in the
+certificate appendix. The analytic implications of these finite
+inequalities are established here; a hash alone is not a mathematical
+verification of a norm estimate or a PDE passage to the limit.
+
+\subsection{All cutoffs and the full PDE conclusion}
+\label{ext:pde}
+
+\begin{proof}[Proof of Theorem~\ref{ext:theorem}]
+Fix one row and its datum. At every cutoff $N\ge\sqrt6$, the reference
+\eqref{ext:w2} is retained exactly. Its initial error is $\Pi_Nh$, and
+projection contracts both $A_{-1}(h)$ and the full residual norm. The
+preceding monotonicity and rational inequalities therefore verify the
+hypotheses of Lemma~\ref{ext:historylemma} uniformly in $N$. In particular,
+\begin{equation}
+ \int_0^\infty A_0(u_N(t))^2\,dt\le\Gamma<L
+ \qquad(N\ge\sqrt6).
+ \label{ext:largecutaction}
+\end{equation}
+
+Write $X_N=\|\nabla u_N\|_2^2$ and $Y_N=\|\Delta u_N\|_2^2$.
+Testing the exact Galerkin equation against $-\Delta u_N$, using
+$\|u_N\|_\infty\le A_0(u_N)$, and applying $2ab\le a^2+b^2$ gives
+\begin{equation}
+ X_N'+Y_N\le A_0(u_N)^2X_N.
+ \label{ext:enstrophy}
+\end{equation}
+The integrating factor for this scalar inequality and
+\eqref{ext:largecutaction} prove
+\[
+ \sup_tX_N(t)\le X_0e^{\Gamma},\qquad
+ \int_0^\infty Y_N(t)\,dt\le X_0e^{\Gamma}.
+\]
+The kinetic-energy equality gives $\int_0^\infty X_N\,dt\le E_0/2$;
+hence $\int_0^\infty X_N^2\,dt\le(E_0X_0/2)e^{\Gamma}$.
+
+For the lower cutoffs $N<\sqrt6$, no comparison with a partially removed
+reference is needed. Directly from energy and the spectral support,
+\begin{align*}
+ \sup_tX_N(t)&\le N^2E_0\le6X_0,\\
+ \int_0^\infty Y_N(t)\,dt
+   &\le N^2\int_0^\infty X_N(t)\,dt\le3E_0\le3X_0,\\
+ \int_0^\infty X_N(t)^2\,dt
+   &\le\frac{N^2E_0^2}{2}\le3E_0X_0.
+\end{align*}
+Here $E_0\le X_0$ is the mean-zero Poincar\'e inequality; it does not
+require a small $E_0$. Every listed $L\ge2$, and
+$e^2>1+2+2+8/6=19/3>6$. These lower-cutoff bounds and $\Gamma<L$ prove
+\eqref{ext:h1}--\eqref{ext:nsb} for every cutoff. We have not claimed
+\eqref{ext:largecutaction} for cutoffs missing reference modes.
+
+For completeness, the finite systems themselves exist for every time:
+their energy identity bounds their finite coefficient vectors and prevents
+finite-time escape in the polynomial ODE. On each finite time interval,
+\eqref{ext:h1}--\eqref{ext:h2} bound the Galerkin sequence in
+$L^\infty H^1\cap L^2H^2$. The equation bounds its time derivatives in
+$L^2L^2$: by the periodic embedding $H^2\hookrightarrow L^\infty$,
+\[
+ \|(u_N\cdot\nabla)u_N\|_2
+ \le\|u_N\|_\infty\|\nabla u_N\|_2
+ \le C\|u_N\|_{H^2}\|u_N\|_{H^1}.
+\]
+Simon~\cite{Simon}, Corollary~4, therefore gives a subsequence strongly convergent in $L^2H^1$
+on each finite interval, with the nonlinear term converging in
+ distributions. The limit has the prescribed datum and is a global strong
+solution. The bounds pass by weak lower semicontinuity. Applying Fatou
+first to finite Fourier sums and then to their increasing limit also
+preserves $\int_0^\infty A_0(u)^2\,dt\le\Gamma$ for the PDE solution.
+
+To see uniqueness in this class, take the difference of two strong
+solutions and test its equation in $L^2$. Incompressibility eliminates
+one transport term, and integration by parts bounds the other by
+$\|u\|_\infty\|w\|_2\|\nabla w\|_2$ for one of the solutions $u$.
+Young's inequality and the locally integrable coefficient
+$\|u\|_\infty^2$ give uniqueness by Gronwall. The local smooth solution
+with smooth datum agrees with this strong solution. The uniform $H^1$
+continuation bound and the local theory of \cite[Proposition~2.2]{Tao2009} extend smoothness
+through every finite time. No global full-PDE regularity assumption was
+used to obtain the Galerkin estimates.
+\end{proof}
+
+\paragraph{Scope of the extension.}
+These are sufficient regions with explicit constants, not maximal regions
+or an arbitrary-data assertion. They extend the initial-data classes covered
+by the particular reference calculation while retaining a separate proof
+from the ordinary-Picard convergence theorem. A failed upper gate would
+show only that this comparison was inconclusive. Conditional criteria,
+fieldwise modified-energy obstructions, and numerical experiments in other
+branches do not enlarge Theorem~\ref{ext:theorem} without their own
+unconditional full-PDE argument.

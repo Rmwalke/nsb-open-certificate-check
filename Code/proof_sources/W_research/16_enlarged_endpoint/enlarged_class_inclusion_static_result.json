@@ -1,0 +1,101 @@
+{
+  "status": "PASS_STRICT_ENLARGEMENT_OF_TWO_PRIOR_ANALYTIC_CLASSES",
+  "source_json": "enlarged_endpoint_gate_result.json",
+  "source_sha256": "661a9c1c426b59e5f9d0a9477628f03f3b96a1ec8f86dc69f4c7d5e919ae4f0f",
+  "old_classes": [
+    {
+      "name": "old_A",
+      "amplitude": "11/10",
+      "chi": "1/100"
+    },
+    {
+      "name": "old_B",
+      "amplitude": "1",
+      "chi": "1/20"
+    }
+  ],
+  "new_amplitude_class": {
+    "amplitude": "8/7",
+    "chi": "1/100"
+  },
+  "new_critical_radius_class": {
+    "amplitude": "1",
+    "chi": "1/10"
+  },
+  "critical_radius_enlargement_factor": "2",
+  "amplitude_endpoint_increment": "3/70",
+  "old_union_is_strict_subset_of_new_union": true,
+  "witnesses": [
+    {
+      "name": "higher_shell",
+      "initial_field": "(sin z, sin x+(1/5)sin(2x), sin y)",
+      "smooth_real_mean_zero_divergence_free": true,
+      "divergence_reason": "Each component is independent of its matching coordinate.",
+      "E0": "38/25",
+      "X0": "79/50",
+      "distance_identity": "A_-1(u0-bW)=3*abs(1-b)+1/10",
+      "outside_both_old_classes_under_any_allowed_decomposition": true,
+      "exclusions": [
+        {
+          "old_class": "old_A",
+          "old_amplitude_cap": "11/10",
+          "old_critical_radius": "1/100",
+          "minimum_critical_distance_to_old_segment": "1/10",
+          "strict_gap": "9/100"
+        },
+        {
+          "old_class": "old_B",
+          "old_amplitude_cap": "1",
+          "old_critical_radius": "1/20",
+          "minimum_critical_distance_to_old_segment": "1/10",
+          "strict_gap": "1/20"
+        }
+      ]
+    },
+    {
+      "name": "larger_amplitude",
+      "initial_field": "(8/7)*(sin z,sin x,sin y)",
+      "smooth_real_mean_zero_divergence_free": true,
+      "divergence_reason": "Each component is independent of its matching coordinate.",
+      "E0": "96/49",
+      "X0": "96/49",
+      "distance_identity": "A_-1(u0-bW)=3*abs(8/7-b)+0",
+      "outside_both_old_classes_under_any_allowed_decomposition": true,
+      "exclusions": [
+        {
+          "old_class": "old_A",
+          "old_amplitude_cap": "11/10",
+          "old_critical_radius": "1/100",
+          "minimum_critical_distance_to_old_segment": "9/70",
+          "strict_gap": "83/700"
+        },
+        {
+          "old_class": "old_B",
+          "old_amplitude_cap": "1",
+          "old_critical_radius": "1/20",
+          "minimum_critical_distance_to_old_segment": "3/7",
+          "strict_gap": "53/140"
+        }
+      ]
+    }
+  ],
+  "assertion_count": 15,
+  "checks": [
+    "endpoint certificate passed",
+    "larger amplitude class certified",
+    "larger radius class certified",
+    "old A contained in new amplitude class",
+    "old B contained in new radius class",
+    "W critical norm exactly three",
+    "W energy and enstrophy exactly three halves",
+    "higher-shell h critical norm one tenth",
+    "higher-shell h energy one fiftieth",
+    "higher-shell h enstrophy two twenty-fifths",
+    "higher-shell witness admitted",
+    "higher_shell outside every decomposition in old_A",
+    "higher_shell outside every decomposition in old_B",
+    "larger_amplitude outside every decomposition in old_A",
+    "larger_amplitude outside every decomposition in old_B"
+  ],
+  "scope": "Strict comparison with the two explicitly named earlier analytic classes, not a novelty claim or a claim about every conceivable prior sufficient criterion."
+}

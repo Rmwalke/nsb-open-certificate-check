@@ -1,0 +1,20 @@
+License scope — release candidate, version 1.0
+
+Copyright (c) 2026 Rushikesh Murlidhar Walke, for the author's contributions and to the extent applicable rights exist.
+
+1. Software
+All .py files in this distribution are licensed under the MIT License. The complete license and copyright notice are in LICENSE_MIT.txt.
+
+2. Paper, documentation and certificate material
+The accompanying Paper.pdf, manuscript source, documentation, certificate JSON/data, and remaining original explanatory or research-note text are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0), to the extent copyright or other rights covered by that license apply. See LICENSE_CC_BY.txt for attribution and the full official license link. Mathematical facts and other unprotected material do not acquire new exclusive rights through this notice.
+
+3. Separate scopes, not alternative licenses
+MIT applies to the software described in item 1. CC BY 4.0 applies to the non-software material described in item 2. This is not an offer to choose either license for every file, and neither license is imposed as an additional condition on material covered only by the other. The license-notice files state the respective terms and are not used to alter those terms.
+
+4. Third-party material
+Any separately identified third-party material retains its original notices and applicable terms. This scope statement does not override those terms or purport to license rights the author does not hold. Existing third-party notices must be retained; no third-party copyright or license notice has been removed as part of preparing these license files.
+
+5. Scholarly citation
+Please cite the accompanying paper and identify the version when using this work in research. CITATION.cff provides citation metadata. This request is a scholarly courtesy, not an additional restriction or condition of the MIT License. The attribution obligations of CC BY 4.0 remain as specified in that license.
+
+No publication date or DOI is asserted by this license-scope file.

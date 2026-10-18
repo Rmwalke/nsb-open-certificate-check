@@ -1,0 +1,23 @@
+Version 1.1 — 17 October 2026
+Previous published version: 1.0, DOI 10.5281/zenodo.23428404.
+
+1. Add Lei–Lin (2011) and Ambrose, Lopes Filho and Nussenzveig Lopes
+   (2024). Acknowledge the periodic small-data contraction argument and
+   its implication for ordinary heat-seeded convergence in L²_t A0.
+2. Explain the reference-free sufficient condition A_-1(u0)<2 from the
+   existing comparison lemma, with a cutoff-uniform Galerkin justification.
+   Distinguish the elementary Picard condition A_-1(u0)<1. Both are strict
+   sufficient conditions; no optimality claim is made.
+3. State the amplitude–radius comparison 3a_*+r<2 and the fact that the
+   main W-neighbourhood lies outside this elementary norm criterion.
+4. Define solution action at its first use, clarify Euclidean norm notation,
+   and explain that the quantitative estimates are not claimed optimal.
+5. Update package versioning and document the provenance of retained v1.0
+   replay receipts. The new version DOI is not assigned in this local build.
+
+The existing theorem statements, assumptions, constants, equation labels,
+scientific programs, archived certificates, original proof notes, replay
+wrapper and replay receipts are unchanged. All 61 original mathematical
+source dependencies are byte-identical to the v1.0 package. No new solver
+replay or independent human peer review is claimed by this revision.
+The substantive AI-assistance disclosure and license mapping are retained.

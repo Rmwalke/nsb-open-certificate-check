@@ -1,0 +1,220 @@
+\section{Computational certificates and reproducibility}
+\label{cert:section}
+
+The arguments use two different finite certificates.  The W12--W16 chain
+certifies exact Fourier identities, analytic time-profile bounds and rational
+inequalities for the whole-time Picard and endpoint arguments.  It does not
+numerically integrate a Navier--Stokes trajectory.  The supplementary N3
+certificate encloses a finite-dimensional Galerkin reference by outward
+interval arithmetic and combines that enclosure with an analytic tail.  The
+full-PDE conclusions in both cases also require the written analytic estimates
+and the cutoff-uniform continuation argument.  A successful program exit alone
+does not establish these analytic implications.
+
+\subsection{Arithmetic and the mathematical objects certified}
+
+The decisive W12--W16 inequalities are evaluated with integers and exact
+rational numbers.  Square roots and exponential or logarithmic expressions
+needed in the estimates are replaced by rational enclosures with explicit
+remainder bounds.  Decimal conversions in the output are for orientation;
+they are not used to decide the strict certificate inequalities.  In
+particular, the smallest positive rectangle-invariance slack in the W15
+data-only audit is approximately
+\[
+  1.1507455879810338\times 10^{-19}.
+\]
+This displayed decimal is not the proof of positivity.  The audit computes
+each slack as an exact rational number and tests it strictly against zero.
+Rounding the displayed slacks to a few decimal places would therefore destroy
+essential information.  The rational coefficients and the complete inequality
+rows are retained in the accompanying JSON files.
+
+The W15 finite checks verify the full 17-block memory terms, invariance of the
+rectangle, entry of the actual heat-seeded third iterate, and the estimate
+relative to the fixed point using the sum of the third-iterate entry error and
+the rectangle radius.  The geometric-rate and solution-stability checks use
+positive rational majorants.  The W16 checks certify the separate endpoint
+regions and their retained-history budgets.  The replay wrapper also binds
+all nine field caps used in W16 to the freshly reconstructed W12 Fourier
+bounds, and checks the full formal twelve-monomial residual expansion.  This
+last check supplements, rather than replaces, the Fourier reconstruction.
+
+For N3, an interval is stored as an integer pair representing
+\([\ell/2^p,r/2^p]\).  The implementation uses outward integer rounding,
+integer square-root bounds and rational series bounds for exponentials.
+Binary floating-point arithmetic does not determine the passing gate.  The
+reproduced reference uses \(p=224\), Taylor order \(16\), step \(1/128\), and
+\(1024\) steps to time \(8\).  The analytic continuation of the bounds from
+time \(8\) to infinity uses the finite ODE energy decay.  The reference
+contains ten basis coordinates and \(108\) signed Fourier modes.  Its complete
+exterior residual, rather than only the retained modes, enters the PDE error
+estimate.  The accompanying rational margin check verifies, among other
+inequalities, \(\kappa<49/100\).  The alternative
+\(384\)-bit, order-\(32\) computation retained in the larger research archive
+is not included in this selected bundle and was not rerun in the
+reproduction reported here.
+
+\subsection{Source-to-output map}
+
+Paths in this appendix are relative to the extracted companion
+\path{Code.zip}. The original research files are preserved under
+\path{proof_sources/W_research/}.  The main analytic dependencies are
+\path{07_nonlinear_heat/heat_space_fixed_point.md},
+\path{09_geometric_growth/endpoint_critical_gate_audit.md}, and the W12--W16
+proof notes identified in \path{SOURCE_MAP.json}.  For N3, the written bridge
+from the finite reference to the PDE is in
+\path{01_N3_W/n3_pde_scalar_audit.md}; the finite enclosures and tail are
+described in \path{01_N3_W/n3_numerical_certificate.md}.
+
+Table~\ref{tab:w-certificates} lists all fifteen distinct W programs rerun in
+dependency order.  A directory label such as W15 means the corresponding
+directory below \path{proof_sources/W_research/}: W12 is
+\path{12_second_correction/}, W13 is \path{13_iteration_convergence/},
+W14 is \path{14_unit_W_picard/}, W15 is \path{15_perturbed_picard/}, and
+W16 is \path{16_enlarged_endpoint/}.  For every listed program, its result
+filename is obtained by replacing \path{.py} with \path{_result.json}, with
+one exception: \path{refined_W_block_gate_check.py} writes
+\path{refined_W_block_gate_result.json}.  Thus the table, together with this
+rule, specifies each source and output exactly. Archived comparison outputs
+remain beside their original source programs. The replay wrapper places
+copies of the programs and freshly generated dependencies together in
+\path{working_copy/} under the chosen output directory. Individual programs
+are not intended to be run directly from the separated original-stage
+directories. Duplicate fresh outputs are omitted from this compact bundle;
+the release replay receipt is retained. The source map identifies all 61
+selected mathematical dependencies and their unchanged original bytes.
+Historical headings in the original notes are retained as source evidence;
+the consolidated manuscript states the present results.
+
+{\small
+\begin{longtable}{@{}p{0.07\textwidth}>{\raggedright\arraybackslash}p{0.53\textwidth}>{\raggedright\arraybackslash}p{0.33\textwidth}@{}}
+\caption{Exact-arithmetic W certificate chain.}\label{tab:w-certificates}\\
+\toprule
+Stage & Source program & Certified component \\
+\midrule
+\endfirsthead
+\toprule
+Stage & Source program & Certified component \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+W12 & \path{second_correction_fourier_check.py} & Exact second-correction Fourier fields and caps. \\
+W12 & \path{second_corrected_gate_static.py} & Analytic second-reference gate. \\
+W13 & \path{third_heat_defect_static.py} & Complete third heat-defect profiles. \\
+W14 & \path{fourth_heat_defect_static.py} & Complete fourth heat-defect bounds. \\
+W14 & \path{refined_W_block_gate_check.py} & Whole-history block rectangle. \\
+W14 & \path{refined_iteration_adversarial_static.py} & Separate data-only rectangle audit. \\
+W14 & \path{W_picard_rate_static.py} & Unit-W geometric-rate majorants. \\
+W15 & \path{perturbation_block_gate.py} & Perturbed invariant rectangle. \\
+W15 & \path{perturbed_picard_prefix_static.py} & Actual heat-seeded finite-prefix entry. \\
+W15 & \path{perturbed_stability_rate_static.py} & Rates, solution budget and stability. \\
+W15 & \path{perturbed_picard_adversarial_static.py} & Separate data-only audit of entry and rates. \\
+W16 & \path{enlarged_endpoint_gate.py} & Five separate endpoint regularity regions. \\
+W16 & \path{enlarged_budget_static.py} & Retained-history solution budgets. \\
+W16 & \path{enlarged_endpoint_adversarial_static.py} & Separate data-only endpoint/budget audit. \\
+W16 & \path{enlarged_class_inclusion_static.py} & Inclusion of the earlier analytic classes. \\
+\end{longtable}
+}
+
+The N3 input is \path{n3_exact_algebra_intermediate.json}, which records the
+exact basis, ODE coefficients and exterior residual. The original analytic
+notes are in \path{proof_sources/W_research/01_N3_W/}. The executable
+programs and this algebra input are in \path{checks/N3/}, with unchanged
+file bytes; their original locations are recorded in \path{SOURCE_MAP.json}.
+Archived comparison outputs are in \path{checks/N3/archived/}. The runner
+generates fresh outputs in its own directory; duplicate fresh outputs are
+omitted here while the release receipt is retained. Table~\ref{tab:n3-certificates}
+gives the output map;
+\path{n3_interval_core.py} is the arithmetic and integration module used by
+the finite validator.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.39\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
+\caption{N3 reproduction map.}\label{tab:n3-certificates}\\
+\toprule
+Source program & Output & Role \\
+\midrule
+\endfirsthead
+\toprule
+Source program & Output & Role \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\path{n3_algebra_audit.py} & \path{n3_algebra_audit_result.json} & Exact Fourier reconstruction. \\
+\path{n3_validated_run.py} & \path{n3_validated_result.json} & Interval evolution, diagnostics and analytic tail. \\
+\path{n3_check_margins.py} & \path{n3_rational_margin_check.json} & Separate rational gate and rounded bounds. \\
+\path{run_replay.py} & \path{replay_receipt.json} & Commands, source hashes and archived comparisons. \\
+\end{longtable}
+}
+
+\subsection{Reproduction record and commands}
+
+The version 1.0 W replay ran on 16 October 2026, from 23:55:54 to 23:56:21 UTC
+(17 October, 05:25:54--05:26:21 Indian Standard Time). All fifteen programs
+returned success, and all fifteen result files were byte-for-byte identical
+to their archived counterparts.  Inputs were copied without patches into a
+new working directory; result files were generated afresh in dependency
+order.  The original selected source files were unchanged.  The replayable
+commands, result hashes, assertion counts where supplied, and dependency
+checks are recorded in \path{checks/W/replay_receipt.json}.
+
+The version 1.0 N3 replay ran on 16 October 2026, from 23:56:08 to 23:57:02 UTC
+(17 October, 05:26:08--05:27:02 Indian Standard Time). The algebra audit,
+finite validator and rational margin check all returned success.  The
+mathematical fields of the finite result agreed exactly with the archived
+JSON after excluding the runtime field \path{elapsed_seconds}; the algebra
+and rational-margin JSON data also agreed exactly.  This is a statement of
+parsed-data equality, not a claim that the entire N3 result file was
+byte-identical.  Source hashes and comparisons appear in
+\path{checks/N3/replay_receipt.json}.  Both reproductions used Python
+3.12.14 and standard-library dependencies.
+
+From the extracted bundle root, the W chain can be repeated into an absent or
+empty output directory with:
+\begin{verbatim}
+python3 checks/replay_W_chain.py \
+  --source proof_sources/W_research --out replay_new_W
+\end{verbatim}
+For N3, first make a separate copy of \path{checks/N3/}; from that copy run:
+\begin{verbatim}
+python3 run_replay.py
+\end{verbatim}
+The N3 runner writes outputs within its own directory. A separate copy
+therefore preserves the packaged reproduction record. The W wrapper uses
+portable defaults and records logical relative locations; the scientific
+checker programs and archived certificates remain unchanged. Do not disable Python
+assertions with optimization flags.  A later execution naturally changes
+timestamps and wall-clock durations, so its entire receipt need not match
+the package manifest. Receipts record log names for a repeated run; raw
+execution logs and duplicate working trees are not distributed here.
+The supplied manuscript sources, selected proof notes, programs, original
+comparison certificates and retained version 1.0 receipts form the
+reproducibility record. Version 1.1 changes exposition and references;
+the scientific sources and receipts are unchanged, and no new scientific
+replay is claimed for this revision.
+
+\subsection{Evidence boundaries}
+
+These reproductions establish that the supplied programs, on the recorded
+runtime, reconstruct the archived passing certificates.  They do not provide
+a separate implementation of the complete Fourier and interval algorithms.
+The data-only audit programs check important identities and inequalities
+separately, but do not constitute a formalization of every analytic lemma.
+The proof still depends on the correctness of the mathematical reduction,
+the implementations of the finite checks and enclosures, Python integer and
+rational arithmetic, and the ordinary execution environment.  Standard PDE
+local existence, compactness, uniqueness and continuation arguments also
+remain part of the written proof.
+
+The package manifest and SHA-256 digests serve file identification and
+integrity checking.  They establish neither mathematical correctness nor an
+independently authenticated historical date.  No formal proof-assistant
+verification or external human validation is represented by a passing
+receipt.  In particular, the W16 regions do not acquire the W15 ordinary
+heat-seeded Picard-convergence conclusion merely because both certificate
+chains pass, and the fixed-W N3 bound does not extend unchanged to all
+perturbation regions.  Neither numerical reproduction nor source hashing
+establishes novelty, priority, or regularity for arbitrary smooth
+three-dimensional data.

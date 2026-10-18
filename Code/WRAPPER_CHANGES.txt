@@ -1,0 +1,35 @@
+W replay wrapper: packaging changes
+
+Changed pre-existing file: checks/replay_W_chain.py
+All scientific checker files, archived mathematical result JSONs and selected
+proof notes are unchanged. Their hashes are recorded in SOURCE_MAP.json.
+
+Changes to the wrapper, with no change to its mathematical checks:
+1. Replaced machine-specific source/output defaults with a script-relative
+   proof_sources/W_research source and a caller-cwd-relative replay_new_W
+   output. Explicit --source and --out arguments remain supported.
+2. Replaced the tutorial example with a command runnable from the package root.
+3. Replaced absolute source/output receipt strings with documented logical
+   roots: source_root identifies the directory selected by --source; '.' is
+   the directory containing the receipt. Source-file paths stay relative to
+   source_root. Output, log and cwd paths stay relative to the receipt.
+4. Recorded replay commands as ['python3', script_basename] with
+   cwd='working_copy'. The actual execution still uses the current interpreter
+   and its isolated working directory; the recorded Python version remains
+   in the receipt. The absolute interpreter path is not persisted.
+5. Added an explicit runner_variant description and path_convention metadata.
+6. A missing selected-file assertion now names its relative source member.
+7. The final stdout summary names replay_receipt.json without an absolute path.
+
+No scientific equations, parameters, checker order, input caps, comparison
+rules, or archived bytes were changed. No checksum equality check was weakened.
+The nine field-cap bindings and twelve-monomial residual check are unchanged.
+The original 31-file W input closure is preserved.
+
+The actual child commands and raw scientific stdout are not rewritten by this
+wrapper change. Consequently an unchanged scientific checker can still print
+an absolute output filename to a generated stdout log. That display does not
+change the mathematical result JSON. Distributing future raw logs requires
+checking their displayed metadata separately.
+
+No checker execution was performed during these packaging edits.

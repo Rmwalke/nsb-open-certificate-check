@@ -1,0 +1,91 @@
+{
+  "status": "PASS_INDEPENDENT_ENLARGED_ENDPOINT_AUDIT",
+  "source_json": "enlarged_endpoint_gate_result.json",
+  "source_sha256": "661a9c1c426b59e5f9d0a9477628f03f3b96a1ec8f86dc69f4c7d5e919ae4f0f",
+  "profiles_independently_rebuilt": 7,
+  "passing_classes": [
+    {
+      "amplitude": "1",
+      "chi": "2/25",
+      "barrier": "6/5",
+      "endpoint_upper_orientation_only": 0.6365557270406114,
+      "strict_gate_margin_orientation_only": 0.02201823627222031
+    },
+    {
+      "amplitude": "1",
+      "chi": "1/10",
+      "barrier": "9/5",
+      "endpoint_upper_orientation_only": 0.7309181191561585,
+      "strict_gate_margin_orientation_only": 0.0009072683769199587
+    },
+    {
+      "amplitude": "11/10",
+      "chi": "1/40",
+      "barrier": "6/5",
+      "endpoint_upper_orientation_only": 0.6568950713844923,
+      "strict_gate_margin_orientation_only": 0.0016788919283394163
+    },
+    {
+      "amplitude": "9/8",
+      "chi": "1/100",
+      "barrier": "6/5",
+      "endpoint_upper_orientation_only": 0.6365576797672357,
+      "strict_gate_margin_orientation_only": 0.022016283545596052
+    },
+    {
+      "amplitude": "8/7",
+      "chi": "1/100",
+      "barrier": "8/5",
+      "endpoint_upper_orientation_only": 0.7147619982450544,
+      "strict_gate_margin_orientation_only": 0.004164344342500152
+    }
+  ],
+  "budget_source_json": "enlarged_budget_static_result.json",
+  "budget_source_sha256": "e809816968d76d780fbfa3a0ba145f73bcc317e2c79f8f930d243b358cb503c5",
+  "independently_verified_budgets": [
+    {
+      "amplitude": "1",
+      "chi_radius": "2/25",
+      "barrier": "6/5",
+      "NSB_exponent": 25,
+      "budget_upper_orientation_only": 24.4077012621628
+    },
+    {
+      "amplitude": "1",
+      "chi_radius": "1/10",
+      "barrier": "9/5",
+      "NSB_exponent": 59,
+      "budget_upper_orientation_only": 58.601401009973
+    },
+    {
+      "amplitude": "11/10",
+      "chi_radius": "1/40",
+      "barrier": "6/5",
+      "NSB_exponent": 29,
+      "budget_upper_orientation_only": 28.06654220703588
+    },
+    {
+      "amplitude": "9/8",
+      "chi_radius": "1/100",
+      "barrier": "6/5",
+      "NSB_exponent": 30,
+      "budget_upper_orientation_only": 29.061603261840375
+    },
+    {
+      "amplitude": "8/7",
+      "chi_radius": "1/100",
+      "barrier": "8/5",
+      "NSB_exponent": 49,
+      "budget_upper_orientation_only": 48.27248843626177
+    },
+    {
+      "amplitude": "11/10 or 1",
+      "chi_radius": "1/20",
+      "barrier": "1",
+      "NSB_exponent": 24,
+      "budget_upper_orientation_only": 23.368970538848817
+    }
+  ],
+  "new_budget_lemma": "Independently proved in enlarged_endpoint_adversarial.md; direct rational log and radical checks PASS.",
+  "scope": "Smooth real mean-zero divergence-free aW+h. Separate rows form a union, not a merged rectangle."
+}

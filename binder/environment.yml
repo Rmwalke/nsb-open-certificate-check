@@ -1,0 +1,6 @@
+name: nsb-certificate-check
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - notebook

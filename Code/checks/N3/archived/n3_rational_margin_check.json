@@ -1,0 +1,23 @@
+{
+  "method": "exact rational inequalities and separate positive-series exponential bound",
+  "checks": {
+    "eta_lt_587_over_1e9": true,
+    "I_lt_156400": true,
+    "recorded_kappa_bounds_exact_product": true,
+    "kappa_lt_49_over_100": true,
+    "rounded_gate_lt_49_over_100": true,
+    "Lambda_infty_lt_176_over_25": true,
+    "exp_176_over_25_lt_1150": true,
+    "sqrt_1_minus_kappa_gt_7_over_10": true,
+    "error_constant_lt_1_over_1000": true,
+    "uniform_H1_squared_lt_14": true,
+    "neighborhood_radius_1_over_2500_gate_lt_4_over_5": true
+  },
+  "eta_upper": "15809905476415158502283086882064341326721114945630541700669059/26959946667150639794667015087019630673637144422540572481103610249216",
+  "I_upper": "4215617650238060206335143554214647891640777094930457056490369711121350117/26959946667150639794667015087019630673637144422540572481103610249216",
+  "Lambda_infty_upper": "82123152472753842428953781049403752811633587603444854034971555464540627474539770127535077147658928197159088217/11692013098647223345629478661730264157247460343808000000000000000000000000000000000000000000000000000000000000",
+  "rounded_eta": "587/1000000000",
+  "rounded_I": "156400",
+  "kappa_strict_bound": "49/100",
+  "H1_neighborhood_radius": "1/2500"
+}

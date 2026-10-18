@@ -1,0 +1,14 @@
+दादा, या संचात नवीन, मर्यादित गणिती तपासणी प्रत्यक्ष चालवलेली आहे.
+
+निकाल: १७/१७ invariant-set अटी आणि १७/१७ तिसऱ्या iterateच्या entry अटी, जतन केलेले enclosure inputs गृहीत धरल्यावर, exact fractions वापरून पूर्ण झाल्या. पूर्वीच्या recurrenceच्या ५१/५१ inequalitiesही पूर्ण झाल्या.
+
+ही पूर्ण पुराव्याची स्वतंत्र पडताळणी नाही. inputs खरे bounds आहेत का, पूर्ण PDE argument योग्य आहे का आणि निकाल नवीन/महत्त्वाचा आहे का हे अजून तपासायचे आहे. केवळ PASS फाइल वाचलेली नाही; नव्याने लिहिलेल्या codeने inequalities पुन्हा मोजल्या आहेत.
+
+Paper.pdf आणि Code/ हे दिलेल्या handoffमधील publication-v1.1 संचातून जसाच्या तसा घेतले आहेत. नवीन तपासणी audit/मध्ये आहे. वास्तविक Zenodoवरील bytesशी या वेळी थेट तुलना झालेली नाही.
+
+स्वतः चालवण्यासाठी Python 3 असल्यास या folderमध्ये:
+python3 audit/check_certificate.py --code-dir Code --output-dir audit/my_results
+
+सार्वजनिक GitHub companion तयार करण्यासाठी PUBLISHING_STEPS.txtमधील पायऱ्या आहेत. या सार्वजनिक companionचा पत्ता: https://github.com/Rmwalke/nsb-open-certificate-check . Binderचे configuration तयार आहे; त्याची cloud चाचणी बाकी आहे.
+
+हा संच संशोधनातील एका तपासता येणाऱ्या टप्प्याचा पुरावा व पद्धत स्पष्ट करतो. श्रेय, peer review, वाचकसंख्या किंवा पूर्ण theoremची सत्यता यांची हमी देत नाही.

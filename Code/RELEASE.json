@@ -1,0 +1,35 @@
+{
+  "version": "1.1",
+  "manuscript_date": "2026-10-17",
+  "public_deposition_date": null,
+  "doi": null,
+  "author": "Rushikesh Murlidhar Walke",
+  "paper_pdf_sha256": "74af3faa5cb535ff641bca0f6cb0db1ca4df9f11b90353a57b48bf1e9174009b",
+  "paper_pdf_pages": 29,
+  "scope": "W15 global ordinary heat-seeded Picard convergence; separate W16 regularity neighborhoods; supplementary fixed-W N3 bound.",
+  "unchanged_original_mathematical_dependencies": 61,
+  "release_W_replay": {
+    "receipt": "checks/W/replay_receipt.json",
+    "all_15_outputs_byte_identical": true,
+    "provenance": "Retained unchanged from version 1.0; not a new version 1.1 replay."
+  },
+  "release_N3_replay": {
+    "receipt": "checks/N3/replay_receipt.json",
+    "mathematical_data_exact_except_elapsed_seconds": true,
+    "provenance": "Retained unchanged from version 1.0; not a new version 1.1 replay."
+  },
+  "evidence_limit": "Reproduction and file-integrity checks do not establish priority, novelty, formal verification, or independent human peer review.",
+  "license_scope": "LICENSE_SCOPE.txt",
+  "documentation_correction": {
+    "date": "2026-10-17",
+    "change": "Add original and periodic small-data references; clarify the baseline, quantitative estimates, norm notation and receipt provenance. See CHANGES.txt.",
+    "mathematical_sources_or_receipts_changed": false
+  },
+  "previous_published_version": {
+    "version": "1.0",
+    "date": "2026-10-17",
+    "doi": "10.5281/zenodo.23428404"
+  },
+  "concept_doi": "10.5281/zenodo.23428403",
+  "publication_metadata_note": "This is the local version 1.1 preparation snapshot. Its own DOI and deposition date have not been assigned here; consult the Zenodo version record for publication metadata."
+}

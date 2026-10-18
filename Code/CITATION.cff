@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or certificate material in research, please cite
+  the accompanying paper and identify the version. Scientific citation is
+  requested as a scholarly courtesy and is not an additional condition of
+  the MIT License.
+type: software
+title: "Global heat-seeded Picard convergence near a nonlinear periodic Navier–Stokes flow"
+version: "1.1"
+authors:
+  - family-names: "Walke"
+    given-names: "Rushikesh Murlidhar"
+    affiliation: "Independent Researcher, Maharashtra, India"
+    email: "rushikesh@rmwalke.com"

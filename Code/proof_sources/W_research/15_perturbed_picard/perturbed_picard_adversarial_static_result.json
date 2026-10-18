@@ -1,0 +1,39 @@
+{
+  "status": "PASS_PERTURBED_TRUE_HEAT_SEED_INDEPENDENT_AUDIT",
+  "source_sha256": {
+    "refined_W_block_gate_result.json": "17b578bd37cb971cfbd21a58749bc95a94d62e126fcced0fe21bb3b85a3420b0",
+    "perturbation_block_gate_result.json": "c789c350a041c8e9eba01ccea50f1839fbe2a678439f924f6c13e4f29f2ca461",
+    "perturbed_picard_prefix_static_result.json": "0b6be7a25f469189036951ec5bfcea2a1cf62c35d8a2bbe50ee838ea2645e77e",
+    "perturbed_stability_rate_static_result.json": "76536c8207a28198339dc502fe1f023869a00e140fb2d09f4d1b13e6a3549499"
+  },
+  "chi_radius": "1/10000",
+  "heat_caps_independently_checked": 17,
+  "strict_invariance_rows": 17,
+  "all_new_matrix_entries_checked": true,
+  "all_diagonals_below_3_over_5": true,
+  "spectral_upper_decimal_orientation_only": 0.5781572417201134,
+  "solution_X_squared_upper_below_9": true,
+  "solution_X_squared_decimal_orientation_only": 8.340335743815434,
+  "minimum_positive_invariance_slack_orientation_only": 1.1507455879810338e-19,
+  "unperturbed_prefix_reference_norm_caps_independently_checked": 51,
+  "perturbed_finite_prefix_update_caps_checked": 51,
+  "strict_third_iterate_entry_blocks": 17,
+  "maximum_entry_ratio_decimal_orientation_only": 0.9127337584808773,
+  "finite_prefix_entry": "Actual perturbed heat-seeded third iterate lies strictly inside the rectangle.",
+  "independently_verified_geometric_rates": [
+    {
+      "q": "3/4",
+      "prefactor": 961
+    },
+    {
+      "q": "4/5",
+      "prefactor": 111
+    },
+    {
+      "q": "9/10",
+      "prefactor": 6
+    }
+  ],
+  "independently_verified_solution_map_Lipschitz_constant": 4757,
+  "scope": "New iteration convergence inside the previously regular chi<=1/20 class."
+}

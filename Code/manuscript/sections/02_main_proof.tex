@@ -1,0 +1,677 @@
+\section{The ordinary heat-seeded iteration near \texorpdfstring{$W$}{W}}
+\label{main:section}
+
+We give the analytic argument and specify the finite certificate on which its
+numerical constants depend. The certificate evaluates known Fourier and
+exponential-polynomial expressions; it does not approximate an unknown
+Navier--Stokes trajectory. Its exact rational data and checkers form part of
+the accompanying reproducibility material.
+
+\subsection{Conventions and statement}
+\label{main:conventions}
+
+Let $\mathbb T^3=(\mathbb R/2\pi\mathbb Z)^3$, with measure
+$(2\pi)^{-3}\,dx$. Fourier coefficients are denoted by $\widehat f_k$;
+$|\widehat f_k|$ is the Hermitian Euclidean norm on $\mathbb C^3$.
+All vector fields are real, mean-zero and solenoidal. Thus
+$\widehat f_{-k}=\overline{\widehat f_k}$ and
+$k\cdot\widehat f_k=0$, where the latter product is bilinear.
+For $k\ne0$, put $P_k=I-k\otimes k/|k|^2$, and write $\mathbb P$ for the
+Leray projection. Define
+\begin{align}
+ A_s(f)&=\sum_{k\ne0}|k|^s|\widehat f_k|,
+ & S(t)&=e^{t\Delta}, & A&=-\Delta,\label{main:norms}\\
+ B(f,g)&=\mathbb P((f\cdot\nabla)g),
+ &B_s(f,g)&=\tfrac12\{B(f,g)+B(g,f)\},\label{main:B}\\
+ Q(f,g)(t)&=\int_0^t S(t-s)B_s(f,g)(s)\,ds,
+ &\mathcal H r(t)&=\int_0^t S(t-s)r(s)\,ds.\label{main:Q}
+\end{align}
+The viscosity is one and there is no external force. The projected equation
+is $u'+Au+B(u,u)=0$, and its mild form is $u=Su_0-Q(u,u)$.
+In particular the sign convention in \eqref{main:B} is positive convection.
+Let
+\begin{equation}
+ \mathcal X(I)=L^2(I;A_0),\qquad
+ \|f\|_{\mathcal X(I)}^2=\int_I A_0(f(t))^2\,dt,
+ \qquad \mathcal X=\mathcal X((0,\infty)).\label{main:X}
+\end{equation}
+Precisely, this is the closed real, mean-zero, solenoidal subspace of
+$L^2(I;\ell^1(\mathbb Z^3\setminus\{0\};\mathbb C^3))$.
+
+For $N>0$, $P_N$ retains the modes $0<|k|\le N$. The Galerkin solution
+associated with $u_0$ solves
+\begin{equation}
+ u_N'+Au_N+P_NB(u_N,u_N)=0,\qquad u_N(0)=P_Nu_0.\label{main:galerkin}
+\end{equation}
+Write
+\begin{equation}
+ E_0=\|u_0\|_2^2,\quad X_0=\|\nabla u_0\|_2^2,\qquad
+ B_*(u_0)=\sup_{N>0}\int_0^\infty\|\nabla u_N(t)\|_2^4\,dt.
+ \label{main:Bstar}
+\end{equation}
+
+\begin{theorem}[Ordinary heat-seeded convergence]
+\label{main:theorem}
+Let $W=(\sin z,\sin x,\sin y)$ and $u_0=W+h$, where $h$ is smooth, real,
+mean-zero and divergence-free, and
+\begin{equation}
+ A_{-1}(h)\le\varepsilon:=10^{-4}.\label{main:radius}
+\end{equation}
+There is a unique global smooth solution $u_h$ with datum $u_0$. The ordinary
+Picard sequence
+\begin{equation}
+ v_0^h=S(W+h),\qquad v_{n+1}^h=T_h(v_n^h),\qquad
+ T_h(f)=S(W+h)-Q(f,f)\label{main:picard}
+\end{equation}
+converges to $u_h$ in $\mathcal X$ on the entire half-line, with
+\begin{equation}
+ \|v_n^h-u_h\|_{\mathcal X}\le6(9/10)^{n-3}\quad(n\ge3),
+ \qquad \int_0^\infty A_0(u_h)^2\,dt<9.\label{main:headline}
+\end{equation}
+For two perturbations satisfying \eqref{main:radius},
+\begin{equation}
+ \|u_h-u_g\|_{\mathcal X}\le4757A_{-1}(h-g).\label{main:stability}
+\end{equation}
+Moreover,
+\begin{equation}
+ B_*(u_0)\le\frac{E_0X_0}{2}e^9.\label{main:headline-Bstar}
+\end{equation}
+There is no restriction on the Fourier support of $h$.
+\end{theorem}
+
+The convergence rate concerns $\mathcal X$, not an $H^1$ rate. The quantities
+$E_0$ and $X_0$ in \eqref{main:headline-Bstar} belong to the full datum; the
+critical ball \eqref{main:radius} does not bound them uniformly. The theorem
+is distinct from the larger regularity regions proved elsewhere in this
+paper: their existence conclusions do not imply convergence of
+\eqref{main:picard} throughout those regions.
+
+\subsection{The heat bilinear estimate and the initial trace}
+\label{main:heat-space}
+
+\begin{lemma}[Complex pair bound and heat estimate]
+\label{main:heat-lemma}
+The space $\mathcal X$ is complete, and
+\begin{equation}
+ \|Q(f,g)\|_{\mathcal X}\le c\|f\|_{\mathcal X}\|g\|_{\mathcal X},
+ \qquad c=\frac1{2\sqrt2}.\label{main:bilinear}
+\end{equation}
+The same bound holds for output projections and for zero-extended temporal
+block inputs. For $A_{-1}(a)<\infty$,
+\begin{equation}
+ \|Sa\|_{\mathcal X}\le\frac{A_{-1}(a)}{\sqrt2}.\label{main:heat-data}
+\end{equation}
+The operator $Q$ maps $\mathcal X\times\mathcal X$ continuously into
+$C([0,\infty);A_{-1})$, with zero initial trace, and
+\begin{equation}
+ \sup_{t\ge0}A_{-1}(Q(f,g)(t))
+ \le\tfrac12\|f\|_{\mathcal X}\|g\|_{\mathcal X}.\label{main:trace}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For a real unit vector $n$, write $a=\alpha n+a_\perp$ and
+$b=\beta n+b_\perp$, allowing complex components. Then
+\begin{align*}
+ |P_{n^\perp}[(n\cdot a)b+(n\cdot b)a]|
+ &=|\alpha b_\perp+\beta a_\perp|\\
+ &\le |\alpha||b_\perp|+|\beta||a_\perp|
+ \le |a||b|.
+\end{align*}
+The last inequality is Cauchy--Schwarz for the two nonnegative pairs.
+Using input solenoidality to place derivatives on the output, and
+reindexing the second symmetric convolution, gives
+\begin{equation}
+ |\widehat{B_s(f,g)}_k|
+ \le\frac{|k|}{2}\sum_{p+q=k}|\widehat f_p||\widehat g_q|,
+ \qquad k\ne0.\label{main:coefficient}
+\end{equation}
+The zero output coefficient vanishes. For each nonzero mode,
+\[
+ \big\|\mathbf1_{t\ge0}|k|e^{-|k|^2t}\big\|_{L^2_t}=1/\sqrt2.
+\]
+Minkowski in the Fourier sum, Young's $L^1_t$--$L^2_t$ convolution
+inequality for this individual kernel, and time Cauchy--Schwarz prove
+\eqref{main:bilinear}. This argument keeps the modewise kernel until its
+time norm is taken; it does not integrate a pointwise supremum over modes.
+For the homogeneous term, Minkowski gives
+\[
+ \|Sa\|_{\mathcal X}
+ \le\sum_{k\ne0}|\widehat a_k|
+       \bigg(\int_0^\infty e^{-2|k|^2t}\,dt\bigg)^{1/2}
+ =\frac1{\sqrt2}A_{-1}(a).
+\]
+Dividing \eqref{main:coefficient} by $|k|$ and using contraction of $S$
+in $A_{-1}$ proves
+\[
+ A_{-1}(Q(f,g)(t))\le\tfrac12\int_0^t A_0(f(s))A_0(g(s))\,ds,
+\]
+and hence \eqref{main:trace}. The forcing belongs to $L^1_tA_{-1}$.
+Strong continuity of the heat semigroup on the weighted $\ell^1$ space,
+together with approximation of that forcing by simple functions, proves
+continuity and the zero trace. The same reasoning gives the trace $a$ for
+$Sa$. One may first make all computations on finite Fourier sums and
+compact time supports, then pass by density. Completeness follows from the
+Banach-space definition of $\mathcal X$.
+\end{proof}
+
+We will also use uniqueness among mild solutions in $\mathcal X$ with the
+same datum. Indeed, subdivide time into finitely many intervals, including
+a final infinite interval, so that
+$c(\|u\|_{\mathcal X(I)}+\|v\|_{\mathcal X(I)})<1$ on each one.
+Their finite total squared norms permit such a subdivision. If the two
+solutions agree on the preceding intervals, the entire preceding Duhamel
+history cancels in their difference. Equation \eqref{main:bilinear} on the
+next interval then forces equality there. This proves uniqueness on the
+whole half-line without resetting either solution.
+
+\subsection{Explicit references and the complete heat defect}
+\label{main:reference}
+
+For a smooth reference $w$ with initial trace $W$, define
+$r_w=w'+Aw+B_s(w,w)$. Direct integration gives
+\begin{equation}
+ w-\mathcal H r_w=SW-Q(w,w).\label{main:correction-map}
+\end{equation}
+Thus, with $z=\mathcal H r_w$ and $\widetilde w=w-z$,
+\begin{equation}
+ r_{\widetilde w}=-2B_s(w,z)+B_s(z,z),\qquad z(0)=0.
+ \label{main:correction-residual}
+\end{equation}
+These are identities for the full residual, including its low modes.
+
+Let $w_0=SW=e^{-t}W$, $w_{j+1}=SW-Q(w_j,w_j)$, and put
+\begin{align}
+ F&=B(W,W)=(\sin y\cos z,\sin z\cos x,\sin x\cos y),\nonumber\\
+ C&=\tfrac12(\sin z\cos2y,\sin x\cos2z,\sin y\cos2x),\nonumber\\
+ G&=B(W,F)+B(F,W)=-W/2+C,\qquad H=B(F,F).\label{main:fields}
+\end{align}
+The Leray projection is part of these definitions. In particular $F\ne0$.
+Define the nonnegative causal heat profiles
+\begin{align}
+ L_1&=\tfrac14\{e^{-t}-(1+2t)e^{-3t}\},\nonumber\\
+ L_5&=\tfrac14\{e^{-5t}+(2t-1)e^{-3t}\},\nonumber\\
+ L_6&=\tfrac14\{(2t^2-2t+1)e^{-4t}-e^{-6t}\}.\label{main:L}
+\end{align}
+They vanish at zero and satisfy
+$(\partial_t+1)L_1=(\partial_t+5)L_5=te^{-3t}$ and
+$(\partial_t+6)L_6=t^2e^{-4t}$. Consequently
+\begin{align}
+ w_1&=e^{-t}W-te^{-2t}F,\nonumber\\
+ w_2&=(e^{-t}-L_1/2)W-te^{-2t}F+L_5C-L_6H.\label{main:w2}
+\end{align}
+The support of $w_2$ lies in $|k|^2\le6$. Its exact amplitude is
+\begin{equation}
+ U_2=A_0(w_2)=\tfrac{21}{8}e^{-t}+3te^{-2t}
+                 +\tfrac32te^{-3t}+\tfrac38e^{-5t}+\sqrt3L_6.
+ \label{main:U2}
+\end{equation}
+This follows from its disjoint Fourier shells and the positive fundamental
+coefficient; it is not the sum of magnitudes of an arbitrarily signed
+representation.
+
+For explicit residual linkage, set $x=e^{-t}$, $y=te^{-2t}$,
+$p=L_1/2$, $q=L_5$, $r=L_6$, and $K_{AB}=B(A,B)+B(B,A)$.
+The scalar profiles $p,q,r$ are local to this subsection; the later block
+argument uses $p$ for a positive vector and $q$ for a contraction factor.
+Then
+\begin{align}
+ r_2={}&(p^2-2xp)F+ypG+(x-p)qK_{WC}-(x-p)rK_{WH}\nonumber\\
+       &-yqK_{FC}+yrK_{FH}+q^2B(C,C)-qrK_{CH}+r^2B(H,H).
+       \label{main:r2}
+\end{align}
+Define
+\begin{equation}
+ z_3=\mathcal H r_2,\qquad w_3=w_2-z_3,\qquad
+ z_4=\mathcal H\{-2B_s(w_2,z_3)+B_s(z_3,z_3)\}.
+ \label{main:w3z4}
+\end{equation}
+Thus $w_3$ is the third unperturbed heat-seeded iterate and
+$T_h(w_3)-w_3=Sh-z_4$. The finite certificate constructs all signed
+coefficients of $z_3$ (342 nonzero modes); the conservative support bound
+$|k|^2\le24$ contains $w_3$. It constructs the signed mixed contribution
+$-2\mathcal H B_s(w_2,z_3)$ to $z_4$ exactly. The quadratic contribution
+$\mathcal H B_s(z_3,z_3)$ is bounded as a whole, not discarded or represented
+as part of the mixed-mode count.
+
+The reference calculations admit a real rational storage convention
+without restricting the perturbation class. Under simultaneous inversion
+of the spatial coordinates, $W(-\mathbf{x})=-W(\mathbf{x})$. If $f$ and $g$ are odd, then
+$\nabla g$ is even, so $(f\cdot\nabla)g$ is odd; the Leray projection
+and heat semigroup preserve this parity. Thus all the $W$-based reference
+and defect fields constructed here are real and odd. Reality and oddness
+together imply
+\[
+ \widehat f_k=i\xi_k,\qquad \xi_k\in\mathbb R^3,
+ \qquad \xi_{-k}=-\xi_k,
+ \qquad |\widehat f_k|=|\xi_k|.
+\]
+For two such fields, the positive-convection convention
+\eqref{main:B} reads
+\[
+ \widehat{B(f,g)}_k
+ =-iP_k\sum_{p+q=k}(\xi_p\cdot q)\eta_q,
+ \qquad \widehat g_q=i\eta_q.
+\]
+This explains the minus sign in the stored real-vector convolution.
+The programs store $\xi_k$, or the rational coefficients of its real
+exponential-polynomial profile; their real Euclidean norm is exactly the
+Hermitian norm of the actual Fourier coefficient. This convention is used
+only for the explicit reference and defect calculations. The perturbation
+$h$, its Picard iterates, and the fixed-point space are not assumed odd;
+their estimates use the general complex-vector inequality
+\eqref{main:coefficient}.
+
+Here is the analytic basis of the finite enclosures. Heat convolution of
+$t^m e^{-\alpha t}$ at frequency $|k|^2=\lambda$ is
+$e^{-\lambda t}\int_0^t s^m e^{(\lambda-\alpha)s}\,ds$, a rational
+exponential polynomial for the integer rates occurring here. Products of
+mode profiles therefore have exact factorial moments. Their tails use
+\begin{equation}
+ \int_a^\infty t^m e^{-\lambda t}\,dt
+ =e^{-\lambda a}\sum_{j=0}^m
+       \frac{m!\,a^j}{j!\lambda^{m-j+1}}.\label{main:moments}
+\end{equation}
+After combining signed terms within each mode, Minkowski bounds its
+$\mathcal X(I)$ norm by the sum of square roots of these squared moments.
+Endpoint exponentials and radicals are enclosed outward by rational
+series and integer-square-root bounds.
+
+For the quadratic part of $z_4$, we construct a pointwise upper profile
+explicitly. Let $\Phi_1,\ldots,\Phi_9$ be the nine spatial fields in the
+order displayed in \eqref{main:r2}. Then
+$r_2=\sum_{j=1}^9\sigma_j g_j\Phi_j$, where
+\begin{align}
+ (\sigma_1,\ldots,\sigma_9)&=(-1,1,1,-1,-1,1,1,-1,1),\nonumber\\
+ (g_1,\ldots,g_9)&=\bigl(p(2x-p),yp,(x-p)q,(x-p)r,
+                  yq,yr,q^2,qr,r^2\bigr).
+ \label{main:positive-forcing}
+\end{align}
+The heat-convolution definitions of $L_1,L_5,L_6$ give
+$x,y,p,q,r\ge0$, and the explicit formula for $L_1$ gives
+$0\le p=L_1/2\le x/8$. Thus every $g_j$ is nonnegative on
+$[0,\infty)$. For every shell present in $\Phi_j$, choose a rational
+number
+\[
+ \eta^+_{j\lambda}\ge
+ \sum_{|k|^2=\lambda}|\widehat{\Phi_j}_k|,
+ \qquad \lambda\ge1,
+\]
+by summing outward upper bounds for the individual square roots. Define
+\begin{equation}
+ \psi_{j\lambda}(t)=\int_0^t e^{-\lambda(t-s)}g_j(s)\,ds,
+ \qquad
+ Z(t)=\sum_{j,\lambda}\eta^+_{j\lambda}\psi_{j\lambda}(t).
+ \label{main:positive-causal-profile}
+\end{equation}
+All these sums are finite. Positivity of the scalar heat kernel implies
+$\psi_{j\lambda}\ge0$. Since
+$\widehat z_{3,k}=\sum_j\sigma_j\widehat{\Phi_j}_k
+\psi_{j,|k|^2}$, the triangle inequality, first over fields and then over
+shells, gives $A_0(z_3(t))\le Z(t)$. No disjointness of the fields' Fourier
+supports is assumed. This is the certificate's 31-term field-shell
+profile, stored under \texttt{pointwise\_A0\_upper\_profile} in
+\nolinkurl{third_heat_defect_static_result.json}. Its positivity follows
+from \eqref{main:positive-causal-profile}, even though the expanded
+exponential-polynomial coefficients can have either sign.
+For any $[a,b]$, including
+$b=\infty$, the same modewise kernel calculation as above gives
+\begin{equation}
+ \|\mathcal H B_s(z_3,z_3)\|_{\mathcal X(a,b)}
+ \le c\left\{\int_0^a e^{-(a-s)}Z(s)^2\,ds
+                 +\int_a^b Z(s)^2\,ds\right\}.\label{main:quadratic-history}
+\end{equation}
+In particular its earlier forcing is retained. This estimate uses only
+$|k|\ge1$; the corrected residual need not stay at high frequencies.
+
+\subsection{A finite-block criterion for the unchanged global map}
+\label{main:blocks}
+
+Use the 17 intervals $I_i=[a_i,b_i]$ with endpoints
+\begin{equation}
+ 0,\tfrac1{16},\tfrac18,\tfrac3{16},\tfrac14,\tfrac5{16},
+ \tfrac38,\tfrac7{16},\tfrac12,\tfrac58,\tfrac34,\tfrac78,
+ 1,\tfrac54,\tfrac32,2,3,\infty.\label{main:partition}
+\end{equation}
+Overlaps of endpoints have measure zero. For $j<i$, let $k_{ij}$ be a
+rational upper enclosure of
+\begin{equation}
+ \sup_{\lambda\ge1}e^{-\lambda(a_i-b_j)}
+          \sqrt{1-e^{-2\lambda(b_i-a_i)}};\qquad k_{ii}=1.
+ \label{main:memory}
+\end{equation}
+For the infinite block the square-root factor is one. Define rational
+$s_i$ satisfying
+\begin{equation}
+ s_i\ge\frac1{\sqrt2}\sup_{\lambda\ge1}e^{-\lambda a_i}
+       \sqrt{1-e^{-2\lambda(b_i-a_i)}}.
+ \label{main:heat-block}
+\end{equation}
+Put
+\[
+ \kappa_i:=\sup_{\lambda\ge1}e^{-\lambda a_i}
+       \sqrt{1-e^{-2\lambda(b_i-a_i)}},
+ \qquad \overline\kappa_i\in\mathbb Q,
+ \qquad \kappa_i\le\overline\kappa_i\le1.
+\]
+For $b_i=\infty$, the square-root factor is understood to be one;
+then $\kappa_i=e^{-a_i}$. In the first block $a_1=0$ and
+$\kappa_1=\overline\kappa_1=1$. The function
+\texttt{heat\_factor} in
+\nolinkurl{perturbation_block_gate.py} constructs these rational upper
+enclosures. The certificate takes $s_i=2\bar c\,\overline\kappa_i$,
+which satisfies \eqref{main:heat-block} because
+$2\bar c>1/\sqrt2$, with
+\begin{equation}
+ \bar c=\frac{707106781187}{2000000000000}>c.
+ \label{main:cbar}
+\end{equation}
+The first supremum in \eqref{main:heat-block} is one, even for a very short
+first block. Arbitrarily high-frequency perturbations prevent a uniform
+square-root-of-duration gain there.
+
+\begin{lemma}[Complete source-block memory]
+\label{main:block-lemma}
+For $f,g\in\mathcal X$,
+\begin{equation}
+ \|Q(f,g)\|_{\mathcal X(I_i)}
+ \le c\sum_{j\le i}k_{ij}
+       \|f\|_{\mathcal X(I_j)}\|g\|_{\mathcal X(I_j)}.
+ \label{main:block-bilinear}
+\end{equation}
+Also $\|Sh\|_{\mathcal X(I_i)}\le s_i A_{-1}(h)$.
+\end{lemma}
+\begin{proof}
+Split the forcing into its source intervals. For $s\in I_j$, $j<i$, and
+$\lambda=|k|^2$, the exact output-block norm of the differentiated heat
+kernel is
+\[
+ \bigg(\int_{a_i}^{b_i}|k|^2e^{-2|k|^2(t-s)}\,dt\bigg)^{1/2}
+ =\frac1{\sqrt2}e^{-\lambda(a_i-s)}
+       \sqrt{1-e^{-2\lambda(b_i-a_i)}}\le k_{ij}/\sqrt2.
+\]
+Minkowski, \eqref{main:coefficient}, and source-time Cauchy--Schwarz give
+each summand of \eqref{main:block-bilinear}. On the diagonal, use the whole
+future kernel norm $1/\sqrt2$. Blocks later than $i$ contribute nothing.
+The homogeneous heat estimate follows by the same Fourier Minkowski
+calculation with no derivative. Every earlier source block remains in the sum.
+\end{proof}
+
+The suprema in \eqref{main:memory}--\eqref{main:heat-block} have elementary
+enclosures. For gap $g>0$ and length $\ell>0$, the unconstrained squared
+maximum over $\lambda\ge0$ is
+$\ell(g+\ell)^{-1}(g/(g+\ell))^{g/\ell}$, with maximizer
+$\log(1+\ell/g)/(2\ell)$. If that maximizer is at most one, the
+constrained maximum is attained at one. The zero-gap and infinite-length
+cases are treated directly. Rational logarithm, exponential, and square-root
+enclosures suffice; no floating-point maximization is part of acceptance.
+
+Choose certified rational bounds
+\begin{equation}
+ V_i\ge\|w_3\|_{\mathcal X(I_i)},\qquad
+ d_i\ge\|z_4\|_{\mathcal X(I_i)}.\label{main:Vd}
+\end{equation}
+Here $V_i$ can be the sum of the enclosed $w_2$ and $z_3$ block norms.
+Suppose positive rational radii $\rho_i$ satisfy
+\begin{equation}
+ d_i+\varepsilon s_i+
+ \bar c\sum_{j\le i}k_{ij}(2V_j\rho_j+\rho_j^2)\le\rho_i.
+ \label{main:invariance}
+\end{equation}
+The set
+\begin{equation}
+ \mathcal B=\{f\in\mathcal X:
+       \|f-w_3\|_{\mathcal X(I_i)}\le\rho_i\text{ for all }i\}
+ \label{main:rectangle}
+\end{equation}
+is then invariant under every $T_h$ in \eqref{main:radius}. Indeed,
+$T_h(w_3)-w_3=Sh-z_4$, and expansion around $w_3$ followed by
+\eqref{main:block-bilinear} proves \eqref{main:invariance}'s assertion.
+On this set, block distances are bounded by the nonnegative lower-triangular
+matrix
+\begin{equation}
+ M_{ij}=2\bar c\,k_{ij}(V_j+\rho_j)\ (j\le i),
+ \qquad M_{ij}=0\ (j>i).\label{main:M}
+\end{equation}
+If $\max_i M_{ii}<1$, choose $q$ between this maximum and one and set
+$p=(qI-M)^{-1}\mathbf1$. Forward substitution gives $p>0$ and
+$Mp=qp-\mathbf1\le qp$. The norm
+$\max_i\|f\|_{\mathcal X(I_i)}/p_i$ is equivalent to $\mathcal X$
+because there are finitely many blocks. The map $T_h$ is a strict contraction
+of the closed set \eqref{main:rectangle} in that complete norm.
+This is an all-time fixed point of the unchanged map, not a chain of restarted
+local iterations. Lemma~\ref{main:heat-lemma} gives its trace $W+h$.
+
+\subsection{The finite certificate and entry of the actual heat seed}
+\label{main:certificate}
+
+The invariant-set construction alone would only prove convergence from
+points already in $\mathcal B$. We must check entry for the particular seed
+in \eqref{main:picard}. Let $V_{n,i}$ bound
+$\|w_n\|_{\mathcal X(I_i)}$ for $n=0,1,2$. The first two exact amplitudes
+are $3e^{-t}$ and $3e^{-t}+3te^{-2t}$. Their squared tail integrals are
+\begin{align}
+ F_0(t)&=\tfrac92e^{-2t},\nonumber\\
+ F_1(t)&=\tfrac92e^{-2t}+(6t+2)e^{-3t}
+            +(\tfrac94t^2+\tfrac98t+\tfrac9{32})e^{-4t}.
+ \label{main:prefix-moments}
+\end{align}
+The $n=2$ bounds use \eqref{main:U2}. Thus these prefix inputs have explicit
+analytic constructions independent of the unknown solution.
+
+Set $E_{0,i}=\varepsilon s_i$ and choose outward rational upper bounds
+recursively so that, for $n=0,1,2$,
+\begin{equation}
+ E_{n+1,i}\ge\varepsilon s_i+
+ \bar c\sum_{j\le i}k_{ij}(2V_{n,j}E_{n,j}+E_{n,j}^2).
+ \label{main:prefix}
+\end{equation}
+Subtracting the exact perturbed and unperturbed Picard equations and applying
+Lemma~\ref{main:block-lemma} proves inductively
+\begin{equation}
+ \|v_n^h-w_n\|_{\mathcal X(I_i)}\le E_{n,i},\qquad 0\le n\le3.
+ \label{main:prefix-error}
+\end{equation}
+No earlier source time is removed in this recurrence.
+
+\begin{proposition}[Finite exact certificate for the stated constants]
+\label{main:finite-certificate}
+For \eqref{main:partition} and \eqref{main:cbar}, the supplied rational
+data, constructed from \eqref{main:fields}--\eqref{main:quadratic-history},
+satisfy \eqref{main:memory}--\eqref{main:invariance} and
+\begin{equation}
+ \max_i M_{ii}<\tfrac35,\qquad
+ E_{3,i}<\rho_i\quad(1\le i\le17),\qquad
+ C_0:=\sum_i(V_i+\rho_i)^2<9.\label{main:accepted}
+\end{equation}
+With $E=E_3+\rho$, there is a rational vector $p>0$ satisfying
+\begin{equation}
+ p\ge E,\qquad Mp\le\tfrac9{10}p,\qquad \sum_i p_i^2<36.
+ \label{main:rate-check}
+\end{equation}
+For $b=(I-M)^{-1}s$, the rational data also satisfy
+\begin{equation}
+ b_i=\frac{s_i+\sum_{j<i}M_{ij}b_j}{1-M_{ii}}>0,
+ \qquad \sum_i b_i^2<4757^2.\label{main:stability-check}
+\end{equation}
+\end{proposition}
+
+\begin{proof}[Certificate construction and acceptance]
+The following files specify the finite arithmetic proof; stage-source paths
+are relative to \texttt{proof\_sources/W\_research/} in the companion
+\texttt{Code.zip}. The replay-wrapper path is relative to that archive's root.
+\begin{enumerate}
+\item \nolinkurl{12_second_correction/second_correction_fourier_check.py}
+and its result construct the projected fields and full second residual.
+\item \nolinkurl{13_iteration_convergence/third_heat_defect_static.py}
+and its result construct every signed $z_3$ mode, check its forced heat
+identity and initial trace, and supply the positive profile $Z$.
+\item \nolinkurl{14_unit_W_picard/fourth_heat_defect_static.py}
+and its result construct the mixed $z_4$ modes and include the entire
+quadratic contribution through \eqref{main:quadratic-history}.
+\item \nolinkurl{14_unit_W_picard/refined_W_block_gate_check.py}
+and \nolinkurl{refined_W_block_gate_result.json} evaluate the block moment enclosures and complete memory
+factors. The replay wrapper \nolinkurl{checks/replay_W_chain.py} places
+regenerated dependencies in a common \nolinkurl{working_copy/} directory,
+where the Stage15 programs consume them using their relative paths.
+\item \nolinkurl{15_perturbed_picard/perturbation_block_gate.py}
+and \nolinkurl{perturbation_block_gate_result.json} provide the rational
+$V,d,k,s,\rho,M$ and check every inequality \eqref{main:invariance}.
+\item \nolinkurl{15_perturbed_picard/perturbed_picard_prefix_static.py}
+and its result provide all $E_0,E_1,E_2,E_3$, verify
+\eqref{main:prefix} with outward rounding, and check all 17 strict entry
+comparisons in \eqref{main:accepted}.
+\item \nolinkurl{15_perturbed_picard/perturbed_stability_rate_static.py}
+and its result check the matrix formula, \eqref{main:rate-check},
+\eqref{main:stability-check}, and the squared solution budget.
+\end{enumerate}
+Where not explicitly named, ``its result'' means the correspondingly named
+\nolinkurl{_result.json} file. All integer/rational comparisons are performed
+on the stored fractions; displayed decimals do not decide acceptance.
+The exponential-polynomial integrals use \eqref{main:moments}. Endpoint
+exponentials, logarithms used in memory factors, and radicals have explicit
+outward series bounds. Source hashes bind the imported rational data; the
+separate replay record identifies which generators and checkers were rerun.
+
+For orientation only, the resulting values are
+\begin{align*}
+ \max_i M_{ii}&=0.5781572417201134\ldots,\\
+ \max_i E_{3,i}/\rho_i&=0.9127337584808773\ldots,\\
+ C_0&=8.340335743815434\ldots.
+\end{align*}
+The rate vector may be constructed by forward substitution:
+\[
+ p_i=\max\left\{E_i,
+       \frac{\sum_{j<i}M_{ij}p_j}{9/10-M_{ii}}\right\}.
+\]
+Its domination and matrix inequalities follow directly from this formula;
+the finite squared-norm comparison in \eqref{main:rate-check} is included
+in the exact certificate. Thus the proposition rests on specified finite
+identities, enclosures and inequalities, rather than a saved status string.
+It remains a computer-assisted finite certificate, not a proof-assistant
+formalization; the full rational arrays are supplied to permit inspection
+and reproduction.
+\end{proof}
+
+By \eqref{main:prefix-error} and Proposition~\ref{main:finite-certificate},
+the actual $v_3^h$ belongs to $\mathcal B$. If $u_h$ is its fixed point,
+its block error after entry obeys
+\begin{equation}
+ \big(\|v_n^h-u_h\|_{\mathcal X(I_i)}\big)_i
+ \le M^{n-3}(E_3+\rho),\qquad n\ge3.\label{main:vector-rate}
+\end{equation}
+The $E_3$ term is required because the entering iterate is perturbed while
+the rectangle is centered at unperturbed $w_3$. Positivity and
+\eqref{main:rate-check} give $M^{n-3}(E_3+\rho)\le(9/10)^{n-3}p$.
+The block intervals partition the half-line, so their squared norms add.
+This proves the rate in \eqref{main:headline}. Likewise,
+\begin{equation}
+ \|u_h\|_{\mathcal X}^2\le\sum_i(V_i+\rho_i)^2=C_0<9.
+ \label{main:solution-budget}
+\end{equation}
+
+For $h,g$ in the same ball, let
+$z_i=\|u_h-u_g\|_{\mathcal X(I_i)}$ and $\delta=A_{-1}(h-g)$.
+Subtracting their fixed-point equations gives $z\le s\delta+Mz$.
+Since $M_{ii}<1$, forward substitution yields $z\le b\delta$ with
+$b$ as in \eqref{main:stability-check}. Taking the Euclidean norm proves
+\eqref{main:stability}. Both endpoints must lie in the certified ball;
+no assumption that their difference has norm at most $\varepsilon$ is used.
+
+\subsection{Uniform Galerkin bounds and the full equation}
+\label{main:pde}
+
+We finish the regularity and all-cutoff claims without presupposing global
+smoothness of the full equation. For $N\ge\sqrt{24}$, $P_Nw_3=w_3$.
+On the Galerkin subspace the map
+\[
+ T_{h,N}(f)=SP_N(W+h)-P_NQ(f,f)
+\]
+has center defect $P_N(Sh-z_4)$. Output projection contracts all Fourier
+amplitude norms. The same rectangle, invariant radii and Lipschitz matrix
+therefore construct its global fixed point, with
+\begin{equation}
+ \int_0^\infty A_0(u_{h,N})^2\,dt\le C_0<9.
+ \label{main:galerkin-budget}
+\end{equation}
+For completeness, this finite-dimensional mild fixed point is the
+classical Galerkin solution. On every finite interval $[0,T]$, equivalence
+of the finitely many mode norms gives
+$P_NB(u_{h,N},u_{h,N})\in L^1(0,T)$ from
+$u_{h,N}\in\mathcal X(0,T)$. Variation of constants therefore gives an
+absolutely continuous representative satisfying
+\[
+ u_{h,N}'=-Au_{h,N}-P_NB(u_{h,N},u_{h,N})
+ \quad\hbox{a.e.},\qquad
+ u_{h,N}(0)=P_N(W+h).
+\]
+This representative is continuous, so the polynomial right-hand side is
+continuous; hence the representative is $C^1$ and satisfies the ODE
+everywhere. Local uniqueness for the finite-dimensional polynomial ODE
+identifies it with the usual Galerkin solution. That solution extends
+globally by its energy identity, since bounded energy prevents escape to
+infinity in a fixed finite-dimensional space. This identification uses no
+global regularity premise for the full PDE.
+
+Put $X_N=\|\nabla u_{h,N}\|_2^2$ and
+$Y_N=\|\Delta u_{h,N}\|_2^2$. Direct testing gives
+\begin{align}
+ \tfrac12X_N'+Y_N
+ &\le\|u_{h,N}\|_\infty\sqrt{X_NY_N}
+ \le\tfrac12Y_N+\tfrac12 A_0(u_{h,N})^2X_N,\nonumber\\
+ X_N'+Y_N&\le A_0(u_{h,N})^2X_N.\label{main:H1}
+\end{align}
+The integrating factor and \eqref{main:galerkin-budget} imply
+\begin{equation}
+ \sup_{t\ge0}X_N(t)\le X_0e^{C_0},\qquad
+ \int_0^\infty Y_N(t)\,dt\le X_0e^{C_0}.
+ \label{main:strong-bounds}
+\end{equation}
+The energy equality gives $\int_0^\infty X_N\,dt\le E_0/2$, hence
+\begin{equation}
+ \int_0^\infty X_N(t)^2\,dt
+ \le\frac{E_0X_0}{2}e^{C_0}<\frac{E_0X_0}{2}e^9
+ \quad\hbox{if }E_0X_0>0.\label{main:large-cutoff}
+\end{equation}
+The zero datum has zero integral.
+
+For $N<\sqrt{24}$ the reference need not belong to the Galerkin space;
+\eqref{main:galerkin-budget} is not asserted. Energy instead gives
+\[
+ \sup_tX_N(t)\le N^2E_0<24E_0,\qquad
+ \int_0^\infty X_N(t)^2\,dt\le12E_0^2\le12E_0X_0.
+\]
+The last step is the mean-zero Poincare inequality. Since $e^9>24$, these
+cutoffs also satisfy \eqref{main:headline-Bstar}. This treatment does not
+bound the full initial energy by the critical perturbation norm.
+
+For completeness, \eqref{main:strong-bounds} provides uniform
+$L^\infty_tH^1\cap L^2_tH^2$ bounds on every finite time interval.
+The equation then bounds time derivatives in the usual spaces needed for
+Galerkin compactness (one may use $L^2_tL^2_x$ here, since
+$H^2(\mathbb T^3)\hookrightarrow L^\infty$ and
+$\nabla u_N\in L^\infty_tL^2_x$).
+Simon~\cite{Simon}, Corollary~4, applied with $H^2\Subset H^1\hookrightarrow L^2$
+on each finite time interval, gives strong $L^2_tH^1_x$ compactness.
+It passes the quadratic term to a global strong solution with the prescribed datum.
+The standard local smooth solution agrees with this limit by strong
+uniqueness and continues for all time under the uniform $H^1$ bound;
+smooth initial data give smoothness at every finite time. The local $H^1$
+existence, uniqueness and smoothing statements used here are reviewed in
+Tao~\cite{Tao2009}, Proposition~2.2(i)--(ii). Its unit-torus convention
+transfers to our fixed torus by spatial, temporal and amplitude rescaling;
+we use only the qualitative result. Restarting its uniform local lifespan
+under the bounded $H^1$ norm gives continuation. Applying Fatou
+to the Fourier amplitudes and then time preserves the bound $C_0$.
+The limit is therefore a mild solution in $\mathcal X$ and agrees with
+the fixed point constructed above by the $\mathcal X$ uniqueness argument.
+This proves all assertions of Theorem~\ref{main:theorem}.
+
+\paragraph{Scope of the finite certificate.}
+The temporal partition and all reference fields are finite, whereas the
+perturbation and limiting equation are not truncated. The finite calculations
+prove the bounds used by the infinite-dimensional analytic argument.
+They do not establish success of repeated residual correction for arbitrary
+data, nor do failed larger-radius sufficient tests establish divergence or
+singularity. The exact arithmetic and its reproducibility record also do
+not constitute external mathematical peer review or a novelty claim.

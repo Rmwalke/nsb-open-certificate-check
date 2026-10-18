@@ -1,0 +1,9 @@
+{
+  "test": "halve first invariant radius in temporary copy and update direct hash link",
+  "expected": "nonzero exit and FAIL_DATA_ONLY from target inequalities",
+  "exit_code": 1,
+  "status": "FAIL_DATA_ONLY",
+  "first_block_invariance_pass": false,
+  "first_block_entry_pass": false,
+  "passed": true
+}

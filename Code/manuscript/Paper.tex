@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage[hidelinks,pdfauthor={Rushikesh Murlidhar Walke},pdftitle={Global heat-seeded Picard convergence near a nonlinear periodic Navier--Stokes flow}]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\setlist{nosep,topsep=4pt}
+\title{Global heat-seeded Picard convergence near a nonlinear periodic Navier--Stokes flow}
+\author{Rushikesh Murlidhar Walke\\[3pt]
+\small Independent Researcher, Maharashtra, India\\
+\small\href{mailto:rushikesh@rmwalke.com}{rushikesh@rmwalke.com}}
+\date{17 October 2026\\[4pt]\small Preprint, version 1.1}
+\begin{document}
+\maketitle
+\begin{abstract}
+We consider the unforced three-dimensional incompressible Navier--Stokes
+equations on the normalized $2\pi$-periodic torus at viscosity one.
+For $W=(\sin z,\sin x,\sin y)$ and every smooth solenoidal, real,
+mean-zero perturbation satisfying
+$\sum_{k\ne0}|k|^{-1}|\widehat h(k)|\le10^{-4}$, we certify convergence
+of the ordinary Picard sequence starting from the complete heat flow
+$e^{t\Delta}(W+h)$. Convergence holds on the whole half-line in
+$\|f\|_{\mathcal X}=(\int_0^\infty(\sum_{k\ne0}|\widehat f(k)|)^2\,dt)^{1/2}$, with error at iteration $n\ge3$
+at most $6(9/10)^{n-3}$ and $\int_0^\infty A_0(u(t))^2\,dt<9$,
+where $A_0(f)=\sum_{k\ne0}|\widehat f(k)|$.
+The proof retains the full causal history in a finite block norm and verifies
+entry of the actual heat-seeded third iterate into one invariant set.
+Separate critical-Fourier comparison estimates establish larger explicit
+global-regularity neighborhoods. A validated finite-reference certificate
+also gives the fixed-$W$ all-cutoff bound
+$\sup_N\int_0^\infty\|\nabla u_N\|_2^4\,dt<21/2$.
+The stated quantitative estimates are certified and are not claimed optimal.
+Exact finite certificates and their analytic connection to the full PDE
+are specified in the accompanying reproducibility material.
+\end{abstract}
+\noindent\textbf{Keywords:} Navier--Stokes equations; critical Fourier norms;
+Picard iteration; a posteriori estimates; computer-assisted proof.
+\input{sections/01_intro}
+\input{sections/02_main_proof}
+\input{sections/03_stage16}
+\input{sections/04_n3}
+\input{sections/06_disclosure}
+\appendix
+\input{sections/05_certificates}
+\begin{thebibliography}{99}
+\input{bibliography}
+\end{thebibliography}
+\end{document}

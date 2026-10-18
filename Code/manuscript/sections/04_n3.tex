@@ -1,0 +1,272 @@
+\section{A supplementary Galerkin certificate for the fixed datum}
+\label{n3:section}
+
+This section records a computer-assisted estimate complementary to the
+Picard convergence result. All norms use normalized measure on
+$\mathbb T^3=(\mathbb R/2\pi\mathbb Z)^3$, the viscosity is one, and fields
+are mean zero and divergence free. Write $A=-\Delta$,
+$B(a,b)=\mathbb P((a\cdot\nabla)b)$, and let $P_M$ retain the nonzero
+Fourier modes with $|k|\le M$. Denote the exact Galerkin solution from
+$P_MW$ by $u_M$, where $W=(\sin z,\sin x,\sin y)$, and put $v=u_3$.
+
+\paragraph{Supplementary conclusion.}
+The certificate and estimates below imply a unique global smooth solution
+$u$ from $W$ and
+\begin{align}
+ \|\nabla(u_M-v)(t)\|_2^2&<10^{-3}e^{-t/2}
+       &&(M\ge3),\label{n3:error}\\
+ \sup_M\sup_{t\ge0}\|\nabla u_M(t)\|_2^2&<14,
+ &B_*:=\sup_M\int_0^\infty\|\nabla u_M(t)\|_2^4\,dt
+       &<\frac{21}{2}.\label{n3:bounds}
+\end{align}
+The error bound also holds for the PDE limit $u$. The corresponding norm
+bound is $\|\nabla(u-v)(t)\|_2<10^{-3/2}e^{-t/4}$.
+Separately, if $h\in H^1$ is mean zero and divergence free and
+$\|\nabla h\|_2\le1/2500$, the datum $W+h$ generates a unique global
+strong solution, smooth for positive time, with
+\begin{equation}
+ \|\nabla(u-v)(t)\|_2^2<\frac1{500}e^{-t/2}.
+ \label{n3:ball}
+\end{equation}
+Smooth perturbations retain smooth initial regularity. This ball has no
+Fourier-support restriction. The fixed-$W$ energy estimates
+\eqref{n3:bounds} are not assigned unchanged to perturbed initial data.
+
+\subsection{The error estimate and scalar comparison}
+\label{n3:error-proof}
+
+The symbols $G(t)$ and $L(t)$ below are scalar functions local to this
+section; the scalar tail coefficient $H=\sqrt{660E}$ is defined later.
+They are distinct from the finite Fourier fields and profile notation
+of the preceding sections.
+
+For a smooth reference field $v$ with residual
+$r=v'+Av+B(v,v)$ and a smooth exact solution on its interval of existence,
+set $e=u-v$ and
+$z=\|\nabla e\|_2^2$, $D=\|\Delta e\|_2^2$, and
+$G=\|\nabla v\|_{L^\infty}$, using the Frobenius norm pointwise.
+The vector/tensor Sobolev estimate needed here is
+\begin{equation}
+ \|f\|_6\le C_S\|\nabla f\|_2,
+ \qquad C_S=25/3,
+ \label{n3:sobolev}
+\end{equation}
+for componentwise mean-zero fields. To check its normalization, on a
+period-$L$ torus coordinate variation gives, for nonnegative scalar $a$,
+$a\le g_i$, where $g_i$ is the coordinate average of
+$a+(L/2)|\partial_i a|$. Repeated Cauchy--Schwarz applied to
+$a^{3/2}\le(g_1g_2g_3)^{1/2}$, followed by the arithmetic--geometric mean
+inequality, yields
+\[
+ \|a\|_{3/2}\le\|a\|_1+\frac L6\sum_i\|\partial_i a\|_1.
+\]
+Apply this to $a=|f|^4$ and use H\"older and
+$\sum_i\|\partial_i f\|_2\le\sqrt3\|\nabla f\|_2$ to obtain
+$\|f\|_6\le\|f\|_2+(2L/\sqrt3)\|\nabla f\|_2$.
+At $L=2\pi$, Poincar\'e and
+$1+4\pi/\sqrt3<25/3$ prove \eqref{n3:sobolev}.
+This argument applies directly to the Euclidean magnitude of vector or
+tensor fields. In particular it applies to $\nabla e$, with
+$\|D^2e\|_2=\|\Delta e\|_2$.
+
+Testing the error equation with $-\Delta e$, integrating the transport
+term once by parts, and using mean-zero Poincar\'e gives, initially with
+viscosity $\nu>0$,
+\[
+ \frac12z'+\nu D
+ \le Gz+G\sqrt{zD}
+       +C_S^{3/2}z^{3/4}D^{3/4}+\|r\|_2\sqrt D.
+\]
+Allocate $\nu D/4$ to each of the last three terms. The cubic Young
+estimate has remainder $27C_S^6z^3/(4\nu^3)$. Therefore
+\begin{equation}
+ z'+\frac\nu2D
+ \le(2G+2G^2/\nu)z+\frac{27C_S^6}{2\nu^3}z^3
+       +\frac2\nu\|r\|_2^2.
+ \label{n3:h1-inequality}
+\end{equation}
+Set $\nu=1$, $f=2\|r\|_2^2$, and define
+\begin{align}
+ \Lambda(t)&=\int_0^t(2G+2G^2)\,ds,&
+ L(t)&=\Lambda(t)-t/2,\notag\\
+ \eta&=d^2+\int_0^\infty e^{-L}f\,dt,&
+ I&=\int_0^\infty e^{2L}\,dt,\qquad
+ \kappa=27C_S^6\eta^2 I,\label{n3:gate-def}
+\end{align}
+where $d^2=z(0)$. Since $D\ge z$, $w=e^{-L}z$ satisfies
+$w'\le(27C_S^6/2)e^{2L}w^3+e^{-L}f$.
+The remaining-forcing function
+$V(t)=w(t)+\int_t^\infty e^{-L(s)}f(s)\,ds$ obeys
+$V(0)=\eta$, $V\ge w\ge0$, and
+$V'\le(27C_S^6/2)e^{2L}V^3$.
+Bernoulli comparison, whenever $\kappa<1$, gives
+\begin{equation}
+ z(t)\le
+ \frac{e^{L(t)}\eta}
+ {\sqrt{1-27C_S^6\eta^2\int_0^t e^{2L(s)}\,ds}}
+ \le\frac{e^{\Lambda(\infty)}\eta}{\sqrt{1-\kappa}}e^{-t/2}.
+ \label{n3:scalar-bound}
+\end{equation}
+
+\subsection{Exact algebra, interval validation, and the infinite tail}
+\label{n3:certificate}
+
+The finite reference solves $v'+Av+P_3B(v,v)=0$ from $W$, so
+$r=(1-P_3)B(v,v)$. The supplied exact rational data give a ten-dimensional
+real invariant basis. Its Laplacian eigenvalues and squared norms are
+\[
+ (1,2,5,5,6,6,8,9,9,9),\qquad
+ (3/2,3/4,3/16,15,1/8,12,6,1566,87/8,3/2).
+\]
+The first basis vectors are $W$ and
+$F=(\sin y\cos z,\sin z\cos x,\sin x\cos y)$, using the notation of Section~\ref{main:reference}.
+Exact Fourier convolution of all 55 unordered basis pairs verifies full
+closure within the spherical cutoff, 133 nonzero quadratic ODE
+coefficients, and the entire exterior residual. There are 52 nonzero
+exterior pair fields, with 648 signed exterior modes, whose squared norm
+has 285 quartic terms. The retained support $\mathcal K$ satisfies
+\begin{equation}
+ |\mathcal K|=108,
+ \qquad\sum_{k\in\mathcal K}|k|^2=660.
+ \label{n3:support}
+\end{equation}
+The same exact audit verifies reality, divergence freedom, basis
+orthogonality, the initial datum, and cubic cancellation in the energy law.
+The basis, coefficients, and residual fields are part of the accompanying
+machine-readable proof data; the full coefficient lists are not printed here.
+
+The accepted enclosure uses integer intervals with denominator $2^{224}$,
+step $h=1/128$, and Taylor order $p=16$ for 1024 steps through $S=8$.
+At each step strict inclusion
+$X+[0,h]F(\mathcal B)\subset\operatorname{int}\mathcal B$
+provides a continuous Picard enclosure. Taylor coefficients at $X$ give
+the initial derivatives, and the same recurrence on $\mathcal B$ gives
+universal derivative remainders. For the dissipative diagonal component
+$x_k'=-\lambda_kx_k+N_k(x)$, endpoint propagation uses
+\[
+ e^{-\lambda_kh}X_k+\sum_{n=0}^{p-1}w_{\lambda_kn}N_{k,n}(X)
+       +w_{\lambda_kp}N_{k,p}(\mathcal B),\qquad
+ w_{\lambda n}=\int_0^h e^{-\lambda(h-s)}s^n\,ds.
+\]
+Alternating rational series enclose the exponentials and weights; integer
+square roots round outwards. Ordinary Taylor bounds enclose the whole
+time slab. Intersections of proved enclosures are used, never midpoint
+replacement; failed inclusion or an empty intersection rejects the run.
+
+On these full slabs, $\|r\|_2^2$ is enclosed both by the exact quartic
+polynomial and by a midpoint value with an $L^2$ radius bound. For $G$, the
+first two basis fields satisfy
+$\|\nabla(aW+bF)\|_\infty=\sqrt{3(a^2+b^2)}$; the remaining fields
+use their exact Fourier triangle bounds. For example, the first row of
+the first identity is bounded by
+$b^2\cos^2y\cos^2z+(a\cos z-b\sin y\sin z)^2\le a^2+b^2$;
+cyclic summation and equality at the origin prove the formula.
+Full-slab rectangle bounds integrate $\Lambda$, $\eta$, and $I$.
+
+Let $E$ enclose $\|v(S)\|_2^2$. The exact Galerkin energy law implies
+$\|v(S+\tau)\|_2^2\le Ee^{-2\tau}$. By \eqref{n3:support},
+\[
+ G(S+\tau)\le He^{-\tau},\quad H=\sqrt{660E},\qquad
+ \|r(S+\tau)\|_2^2\le972E^2e^{-4\tau}.
+\]
+Here the latter bound follows from
+$\|v\|_\infty\le\sqrt{108}\|v\|_2$,
+$\|\nabla v\|_2\le3\|v\|_2$, and contraction of the residual projection.
+Thus, writing $\Delta=2H+H^2$,
+\begin{equation}
+ \Lambda(\infty)\le\Lambda(S)+\Delta,\qquad
+ \eta_{\rm tail}\le\frac47\,972E^2e^{-L(S)},\qquad
+ I_{\rm tail}\le e^{2L(S)+2\Delta}.
+ \label{n3:tails}
+\end{equation}
+The finite Galerkin energy law ensures existence throughout this tail;
+no unknown global PDE solution is assumed here.
+
+For $d=0$, the reproduced finite certificate and these tails give
+\begin{equation}
+ \eta<\frac{587}{10^9},\qquad I<156400,\qquad
+ \Lambda(\infty)<\frac{176}{25},\qquad
+ \kappa\le0.486226878267<\frac{49}{100}.
+ \label{n3:numeric-bounds}
+\end{equation}
+The displayed decimal is an outward upper rounding. Exact rational
+arithmetic also verifies
+$27(25/3)^6(587/10^9)^2\,156400=134726479/276480000<49/100$.
+A positive rational exponential series with a geometric remainder proves
+$e^{176/25}<1150$. Consequently
+$1150(587/10^9)/\sqrt{51/100}<1/1000$.
+The release replay documented in Appendix~\ref{cert:section} checked all recorded interval quantities against the
+archived result exactly, except for wall-clock duration; the exact algebra
+and rational-margin outputs also agreed. This is a reproduction using the
+same interval implementation, not an independent implementation or a
+proof-assistant formalization.
+
+\subsection{All cutoffs, the PDE limit, and the perturbation ball}
+\label{n3:pde}
+
+For each $M\ge3$, both exact finite Galerkin flows exist globally by
+their energy identities. Since $v$ belongs to the $M$-mode space,
+$e_M=u_M-v$ obeys \eqref{n3:h1-inequality} with residual $P_Mr$ and
+$d=0$. Orthogonal projection does not increase its $L^2$ norm, so the same
+certificate applies uniformly in $M$. Equations
+\eqref{n3:scalar-bound}--\eqref{n3:numeric-bounds} prove
+\eqref{n3:error}. Moreover,
+\[
+ \|v(t)\|_2^2\le\frac32e^{-2t},\qquad
+ \|\nabla v(t)\|_2^2\le\frac{27}{2}e^{-2t}.
+\]
+Writing $X_M=\|\nabla u_M\|_2^2$ gives
+\[
+ \sqrt{X_M(t)}<\sqrt{27/2}\,e^{-t}+\sqrt{1/1000}\,e^{-t/4},
+ \qquad \alpha:=(\sqrt{27/2}+\sqrt{1/1000})^2<14.
+\]
+For $M<3$, the direct spectral energy estimate gives
+$X_M(t)\le(27/2)e^{-2t}$ instead. The exact energy identity gives
+$\int_0^\infty X_M\,dt\le\|P_MW\|_2^2/2\le3/4$ for every cutoff.
+Thus $\sup_{M,t}X_M\le\alpha<14$ and
+$B_*\le3\alpha/4<21/2$, including a strict uniform margin.
+
+Retaining the positive $D/2$ term in \eqref{n3:h1-inequality} and
+integrating yields a uniform $L^2(0,T;H^2)$ bound for $e_M$, since the
+error estimate, the finite certificate, and \eqref{n3:tails} control all
+terms on the right. Together with the reference bounds this gives uniform
+$L^\infty(0,T;H^1)\cap L^2(0,T;H^2)$ control of $u_M$.
+The equation bounds $\partial_tu_M$ in $L^2(0,T;L^2)$; explicitly,
+\[
+ \|(u_M\cdot\nabla)u_M\|_2^2
+ \le C_S^3 X_M^{3/2}\|\Delta u_M\|_2
+ \le\frac{C_S^3}{2}(X_M^3+\|\Delta u_M\|_2^2).
+\]
+Compactness as in \cite[Corollary~4]{Simon} and strong uniqueness as in
+\cite[Proposition~2.2]{Tao2009} therefore produce a
+global solution in $C([0,T];H^1)\cap L^2(0,T;H^2)$ for every finite $T$.
+Lower semicontinuity and time continuity transfer the reference-error
+bound; smooth initial data and parabolic regularity give global smoothness.
+This passage uses standard local existence, continuation, and compactness
+theory, in addition to the finite certificate.
+
+For the perturbation ball take $d^2\le1/2500^2$, or its projected value
+for $u_M(0)=P_M(W+h)$. The same reference and residual give
+\[
+ \eta_h<\frac{747}{10^9},\qquad
+ \kappa_h<27(25/3)^6(747/10^9)^2\,156400
+   =\frac{8080797}{10240000}<\frac45.
+\]
+Since $[1150(747/10^9)]^2/(1-4/5)<(1/500)^2$,
+\eqref{n3:scalar-bound} proves \eqref{n3:ball}; the same uniform
+Galerkin construction applies. Its initial energy differs from that of
+$W$, so this conclusion is stated separately from \eqref{n3:bounds}.
+
+\paragraph{Reproducibility and scope.}
+The accompanying files in \path{checks/N3/} of \path{Code.zip}, namely
+\path{n3_exact_algebra_intermediate.json},
+\path{n3_algebra_audit.py}, \path{n3_interval_core.py},
+\path{n3_validated_run.py}, and \path{n3_check_margins.py}
+contain the complete finite data and executable checks.
+The runner \path{run_replay.py} and the release record
+\path{replay_receipt.json} in the same directory identify the
+reproduction and exact source hashes. Correctness still depends on
+these programs, their exact-arithmetic execution, and the written analysis
+above. The result concerns the fixed datum and the stated neighborhood;
+it implies neither arbitrary-data three-dimensional regularity nor a
+new precedence claim.

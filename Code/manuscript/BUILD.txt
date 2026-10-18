@@ -1,0 +1,24 @@
+Build the accompanying preprint
+
+Use a standard LaTeX installation with pdfLaTeX, Latin Modern, the AMS
+packages, geometry, booktabs, longtable, array, enumitem, microtype, xurl
+and hyperref. No custom fonts, external images or shell-escape are needed.
+
+From a separate copy of this manuscript directory:
+  pdflatex -no-shell-escape -interaction=nonstopmode -halt-on-error Paper.tex
+Repeat the same command until cross-reference warnings have disappeared
+(the release build required three passes).
+
+The bibliography is included as TeX; BibTeX is not required. Paper.tex
+loads the section files through relative paths. The compiled result is
+Paper.pdf, supplied as the separate principal upload alongside Code.zip.
+The distributed archive omits build caches, auxiliary files and execution
+logs. A newly compiled PDF can have different byte hashes because of
+runtime/font/PDF metadata; the manifest identifies the supplied files.
+
+The release PDF is a preprint, version 1.1, dated 17 October 2026. That
+manuscript date does not assert a public-deposition date or DOI.
+
+Version 1.0 was published as DOI 10.5281/zenodo.23428404. The new
+version DOI will be assigned by Zenodo; consult the version record rather
+than treating the previous version DOI as the identifier of this PDF.
