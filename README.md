@@ -1,5 +1,30 @@
 # NS-B: an inspectable certificate companion
 
+> **Reviewer quick start — a limited, conditional arithmetic audit**
+>
+> The [recorded Python audit](audit/results/W15_data_only_audit.json) reports `PASS_DATA_ONLY`: **17/17** rectangle-invariance comparisons, **17/17** strict third-iterate entry comparisons, and **51/51** archived prefix recurrence comparisons. These are stored results; the documentation review on 28 October 2026 did not rerun the research calculations.
+>
+> Acceptance uses Python `Fraction`, not rounded decimals. The smallest recorded invariance margin is approximately **1.1507455879810338 × 10⁻¹⁹**; its exact fraction is in `summary.smallest_invariance_margin_exact`. See [the checker](audit/check_certificate.py) and [its scope](audit/README.md).
+>
+> The checker reads **three** archived JSON inputs: the W15 perturbation gate and prefix result, plus the W14 refined baseline. It checks their dependency hashes and consistency, then recomputes the finite inequalities. Those internal hash checks do not independently authenticate a release or prove the imported analytic enclosures.
+>
+> A successful check is conditional on those enclosures. It does **not** verify the complete PDE proof, establish novelty, or constitute peer review. The manuscript's claim does not address arbitrary smooth 3D data. The original `Code/` bundle and `Paper.pdf` are preserved unchanged.
+
+**Check in your browser:** [NS-B Experiment Lab](https://nsb-experiment-lab-rmwalke.rushikeshwalkehtc.chatgpt.site) recomputes **34 selected comparisons** from a derived input snapshot, using BigInt fractions for decisions. It does not perform the Python audit's additional archived recurrence, original-file hash and consistency checks; browser PASS is not the complete `PASS_DATA_ONLY` result. Its arithmetic source was inspected in this review; no new browser calculation was run.
+
+<details>
+<summary>Exact audit inputs and license scope</summary>
+
+All paths are relative to this repository:
+
+- `Code/proof_sources/W_research/15_perturbed_picard/perturbation_block_gate_result.json`
+- `Code/proof_sources/W_research/15_perturbed_picard/perturbed_picard_prefix_static_result.json`
+- `Code/proof_sources/W_research/14_unit_W_picard/refined_W_block_gate_result.json`
+
+The root [MIT license](LICENSE) applies to the new companion software in `audit/check_certificate.py` and the code cells of `Inspect_Certificate.ipynb`. It does not relicense `Paper.pdf`, certificate data or the original publication bundle. The original distribution retains the MIT/CC BY 4.0 scopes specified in [Code/LICENSE_SCOPE.txt](Code/LICENSE_SCOPE.txt), including its attribution notices.
+
+</details>
+
 **Paper:** Global heat-seeded Picard convergence near a nonlinear periodic Navier–Stokes flow  
 **Author:** Rushikesh Murlidhar Walke, Independent Researcher, Maharashtra, India  
 **Version:** 1.1, 17 October 2026  
