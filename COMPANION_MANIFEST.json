@@ -430,9 +430,9 @@
     "sha256": "fc088b08e192a17b743b142602f3d5f76e70cf4e9bb2071d69a340d81d8daf22"
   },
   {
-    "path": "PUBLISHING_STEPS.txt",
-    "bytes": 1358,
-    "sha256": "37b6fa7dfe95e608b70bee530999385ce703211989d1ff513830c3a729907847"
+    "path": "LICENSE",
+    "bytes": 1082,
+    "sha256": "08f39666530cab479cbcecb80ab05bda4d1fa9df8fb51ab3fdc82f11692d3f13"
   },
   {
     "path": "Paper.pdf",
@@ -441,13 +441,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 4237,
-    "sha256": "75e8afb8aed731460b80da5e7ae6edfadf8a171924b9ba6488cd75af29d817ef"
-  },
-  {
-    "path": "START_HERE_MR.txt",
-    "bytes": 2515,
-    "sha256": "d514be04188c8b042dcd99d19c167b40602bf4fb346d5d1ba4b7cdfffa166111"
+    "bytes": 6873,
+    "sha256": "46f84f9f13d73f9777026e141484ad033c87239b90b7c299a5fedbfb31e03650"
   },
   {
     "path": "audit/README.md",
