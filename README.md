@@ -10,7 +10,7 @@
 >
 > A successful check is conditional on those enclosures. It does **not** verify the complete PDE proof, establish novelty, or constitute peer review. The manuscript's claim does not address arbitrary smooth 3D data. The original `Code/` bundle and `Paper.pdf` are preserved unchanged.
 
-**Check in your browser:** [NS-B Experiment Lab](https://nsb-experiment-lab-rmwalke.rushikeshwalkehtc.chatgpt.site) recomputes **34 selected comparisons** from a derived input snapshot, using BigInt fractions for decisions. It does not perform the Python audit's additional archived recurrence, original-file hash and consistency checks; browser PASS is not the complete `PASS_DATA_ONLY` result. Its arithmetic source was inspected in this review; no new browser calculation was run.
+**Check in your browser:** [NS-B Experiment Lab](https://lab.rmwalke.com) recomputes **34 selected comparisons** from a derived input snapshot, using BigInt fractions for decisions. It does not perform the Python audit's additional archived recurrence, original-file hash and consistency checks; browser PASS is not the complete `PASS_DATA_ONLY` result. Its arithmetic source was inspected in this review; no new browser calculation was run.
 
 <details>
 <summary>Exact audit inputs and license scope</summary>
